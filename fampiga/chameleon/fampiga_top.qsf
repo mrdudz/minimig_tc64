@@ -196,7 +196,6 @@ set_global_assignment -name SDC_FILE fampiga.sdc
 set_global_assignment -name QIP_FILE ../board/CacheBlockRAM.qip
 set_global_assignment -name QIP_FILE ../board/Cache_DataRAM.qip
 set_global_assignment -name VERILOG_FILE ../board/TwoWayCache.v
-set_global_assignment -name BDF_FILE ../board/fampiga_top.bdf
 set_global_assignment -name VHDL_FILE ../board/chameleon_reconfigure.vhd
 set_global_assignment -name VHDL_FILE ../board/chameleon_cdtv_remote.vhd
 set_global_assignment -name VHDL_FILE ../board/palclk.vhd
@@ -389,5 +388,6 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK=00
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LENGTH=245" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_LOWORD=2663" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_HIWORD=21001" -section_id auto_signaltap_0
+set_global_assignment -name VERILOG_FILE ../board/fampiga_top.v
+set_global_assignment -name SLD_FILE /home/amr/FPGA/Projects/minimig_tc64/fampiga/chameleon/stp1_auto_stripped.stp
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
-set_global_assignment -name SLD_FILE /home/amr/FPGA/Chameleon/minimig_tc64/fampiga/chameleon/stp1_auto_stripped.stp
