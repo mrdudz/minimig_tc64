@@ -163,12 +163,12 @@ wire	[5:0] SYNTHESIZED_WIRE_7;
 wire	[5:0] SYNTHESIZED_WIRE_8;
 wire	SYNTHESIZED_WIRE_9;
 wire	SYNTHESIZED_WIRE_10;
-wire	SYNTHESIZED_WIRE_35;
+wire	maincpu_reset;
 wire	SYNTHESIZED_WIRE_12;
-wire	SYNTHESIZED_WIRE_36;
-wire	SYNTHESIZED_WIRE_37;
+wire	sdram_hostL;
+wire	sdram_hostU;
 wire	SYNTHESIZED_WIRE_15;
-wire	[15:0] SYNTHESIZED_WIRE_38;
+wire	[15:0] cpide_cpudatain;
 wire	[15:0] SYNTHESIZED_WIRE_17;
 wire	SYNTHESIZED_WIRE_18;
 wire	SYNTHESIZED_WIRE_21;
@@ -179,14 +179,14 @@ wire	[15:0] SYNTHESIZED_WIRE_25;
 wire	SYNTHESIZED_WIRE_27;
 wire	SYNTHESIZED_WIRE_28;
 wire	[0:1] SYNTHESIZED_WIRE_29;
-wire	[15:0] SYNTHESIZED_WIRE_30;
-wire	[0:2] SYNTHESIZED_WIRE_31;
-wire	SYNTHESIZED_WIRE_33;
-wire	SYNTHESIZED_WIRE_34;
+wire	[15:0] cfide_cpudata;
+wire	[0:2] cfide_ipl;
+wire	cfide_cpuena;
+wire	minimig_cpu_reset;
 
 assign	SYNTHESIZED_WIRE_28 = 1;
 assign	SYNTHESIZED_WIRE_29 = 0;
-assign	SYNTHESIZED_WIRE_31 = 1;
+assign	cfide_ipl = 1;
 wire	[1:0] GDFX_TEMP_SIGNAL_0;
 wire	[23:1] GDFX_TEMP_SIGNAL_1;
 wire	[2:0] GDFX_TEMP_SIGNAL_2;
@@ -237,7 +237,7 @@ Minimig1	b2v_inst1(
 	.cpu_wrdata(cwr),
 	.ramdata_in(dout),
 	._cpu_dtack(dtack),
-	._cpu_reset(SYNTHESIZED_WIRE_34),
+	._cpu_reset(minimig_cpu_reset),
 	._ram_bhe(SYNTHESIZED_WIRE_21),
 	._ram_ble(SYNTHESIZED_WIRE_22),
 	._ram_we(SYNTHESIZED_WIRE_23),
@@ -312,7 +312,7 @@ assign	nVSync =  ~SYNTHESIZED_WIRE_9;
 
 assign	nHSync =  ~SYNTHESIZED_WIRE_10;
 
-assign	SYNTHESIZED_WIRE_4 = ~(SYNTHESIZED_WIRE_35 & SYNTHESIZED_WIRE_12);
+assign	SYNTHESIZED_WIRE_4 = ~(maincpu_reset & SYNTHESIZED_WIRE_12);
 
 
 
@@ -320,8 +320,8 @@ cfide	b2v_inst3(
 	.sysclk(sysclk),
 	.n_reset(sdreset),
 	.cpuena_in(zena),
-	.lds(SYNTHESIZED_WIRE_36),
-	.uds(SYNTHESIZED_WIRE_37),
+	.lds(sdram_hostL),
+	.uds(sdram_hostU),
 	.sd_di(SYNTHESIZED_WIRE_15),
 	.sd_dimm(spi_miso),
 	.enaWRreg(enaWRreg),
@@ -340,14 +340,14 @@ cfide	b2v_inst3(
 	.freeze_n(freeze_n),
 	.menu_n(usart_cts),
 	.addr(addr[23:0]),
-	.cpudata_in(SYNTHESIZED_WIRE_38),
+	.cpudata_in(cpide_cpudatain),
 	.led(GDFX_TEMP_SIGNAL_0),
 	.memdata_in(SYNTHESIZED_WIRE_17),
 	.mux_q(mux_q),
 	.state(state),
 	.mux_clk(mux_clk),
 	.memce(memce),
-	.cpuena(SYNTHESIZED_WIRE_33),
+	.cpuena(cfide_cpuena),
 	
 	.sd_clk(mmc_clk),
 	.sd_do(sd_do),
@@ -361,7 +361,7 @@ cfide	b2v_inst3(
 	.amiser_rxd(amiser_rxd),
 	.turbochipram(turbochipram),
 	.scandoubler(scandoubler),
-	.cpudata(SYNTHESIZED_WIRE_30),
+	.cpudata(cfide_cpudata),
 	.fastramsize(fastramcfg),
 	.joystick1(c64joya),
 	.joystick2(c64joyb),
@@ -379,8 +379,8 @@ assign	locked = SYNTHESIZED_WIRE_18 & breset;
 sdram	b2v_inst5(
 	.sysclk(sysclk),
 	.reset_in(locked),
-	.hostL(SYNTHESIZED_WIRE_36),
-	.hostU(SYNTHESIZED_WIRE_37),
+	.hostL(sdram_hostL),
+	.hostU(sdram_hostU),
 	.cpuU(cuds),
 	.cpuL(clds),
 	.cpu_dma(cdma),
@@ -396,7 +396,7 @@ sdram	b2v_inst5(
 	.cpuWR(cwr),
 	.hostAddr(addr[23:0]),
 	.hostState(GDFX_TEMP_SIGNAL_2),
-	.hostWR(SYNTHESIZED_WIRE_38),
+	.hostWR(cpide_cpudatain),
 	.sdata(sd_data),
 	.sd_we(sd_we_n),
 	.sd_ras(sd_ras_n),
@@ -424,16 +424,16 @@ TG68KdotC_Kernel	b2v_inst6(
 	.clkena_in(SYNTHESIZED_WIRE_27),
 	.IPL_autovector(SYNTHESIZED_WIRE_28),
 	.CPU(SYNTHESIZED_WIRE_29),
-	.data_in(SYNTHESIZED_WIRE_30),
-	.IPL(SYNTHESIZED_WIRE_31),
+	.data_in(cfide_cpudata),
+	.IPL(cfide_ipl),
 	
-	.nUDS(SYNTHESIZED_WIRE_37),
-	.nLDS(SYNTHESIZED_WIRE_36),
+	.nUDS(sdram_hostU),
+	.nLDS(sdram_hostL),
 	
 	
 	.addr(addr),
 	.busstate(state),
-	.data_write(SYNTHESIZED_WIRE_38)
+	.data_write(cpide_cpudatain)
 	
 	);
 	defparam	b2v_inst6.BitField = 0;
@@ -446,7 +446,7 @@ TG68KdotC_Kernel	b2v_inst6(
 
 TG68K	b2v_inst7(
 	.clk(sysclk),
-	.reset(SYNTHESIZED_WIRE_35),
+	.reset(maincpu_reset),
 	.clkena_in(v),
 	.dtack(dtack),
 	.vpa(v),
@@ -478,9 +478,9 @@ TG68K	b2v_inst7(
 	.data_write(cwr),
 	.ramaddr(cad));
 
-assign	SYNTHESIZED_WIRE_27 = SYNTHESIZED_WIRE_33 & enaWRreg;
+assign	SYNTHESIZED_WIRE_27 = cfide_cpuena & enaWRreg;
 
-assign	SYNTHESIZED_WIRE_35 = SYNTHESIZED_WIRE_34 & sdreset;
+assign	maincpu_reset = minimig_cpu_reset & sdreset;
 
 assign	sd_ldqm = dqm[0];
 assign	sd_udqm = dqm[1];
