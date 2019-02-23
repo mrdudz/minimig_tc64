@@ -232,6 +232,13 @@ set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name ENABLE_SIGNALTAP OFF
+set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
+set_global_assignment -name SMART_RECOMPILE ON
 set_global_assignment -name VHDL_FILE ../board/chameleon2_io_a.vhd
 set_global_assignment -name VHDL_FILE ../board/chameleon2_io_e.vhd
 set_global_assignment -name VHDL_FILE ../board/chameleon2_io_ps2iec.vhd
@@ -240,7 +247,6 @@ set_global_assignment -name VHDL_FILE ../board/chameleon_phi_clock_e.vhd
 set_global_assignment -name VHDL_FILE ../board/chameleon_phi_clock_a.vhd
 set_global_assignment -name VHDL_FILE ../board/chameleon_docking_station.vhd
 set_global_assignment -name VHDL_FILE ../board/chameleon_c64_joykeyb.vhd
-set_global_assignment -name SDC_FILE fampiga_tc64v2.sdc
 set_global_assignment -name QIP_FILE ../board/CacheBlockRAM.qip
 set_global_assignment -name QIP_FILE ../board/Cache_DataRAM.qip
 set_global_assignment -name VERILOG_FILE ../board/TwoWayCache.v
@@ -280,9 +286,95 @@ set_global_assignment -name CDF_FILE Chain1.cdf
 set_global_assignment -name QIP_FILE ../board/palclk_v2.qip
 set_global_assignment -name VHDL_FILE ../chameleon_io/gen_reset.vhd
 set_global_assignment -name VERILOG_FILE ../board/fampiga_tc64v2_top.v
-set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
-set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
-set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
-set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name ENABLE_SIGNALTAP OFF
+set_global_assignment -name SDC_FILE fampiga_v2.sdc
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_a[12]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_a[12]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_a[11]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_a[10]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_a[9]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_a[8]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_a[7]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_a[6]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_a[5]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_a[4]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_a[3]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_a[2]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_a[1]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_a[11]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_a[10]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_a[9]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_a[8]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_a[7]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_a[6]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_a[5]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_a[4]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_a[3]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_a[2]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_a[1]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_a[0]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_ba[1]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_ba[0]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_cas
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_clk
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_d[15]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_d[14]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_d[13]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_d[12]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_d[11]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_d[10]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_d[9]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_a[0]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_ba[1]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_ba[0]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_cas
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_clk
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_d[15]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_d[14]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_d[13]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_d[12]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_d[11]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_d[10]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_d[9]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_d[8]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_d[7]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_d[6]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_d[5]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_d[4]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_d[3]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_d[2]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_d[1]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_d[0]
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_ldqm
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_ras
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_udqm
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_d[8]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_d[7]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_d[6]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_d[5]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_d[4]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_d[3]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_d[2]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_d[1]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_d[0]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_ldqm
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_ras
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_udqm
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to ram_we
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to ram_we
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to ram_d[12]
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to ram_d[11]
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to ram_d[10]
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to ram_d[9]
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to ram_d[8]
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to ram_d[7]
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to ram_d[6]
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to ram_d[5]
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to ram_d[4]
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to ram_d[3]
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to ram_d[2]
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to ram_d[1]
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to ram_d[0]
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to ram_d[15]
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to ram_d[14]
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to ram_d[13]
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
