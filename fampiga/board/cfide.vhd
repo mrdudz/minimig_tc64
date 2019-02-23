@@ -19,7 +19,7 @@
 --                                                                          --
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
- 
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
@@ -27,11 +27,6 @@ use IEEE.numeric_std.all;
  
 entity cfide is
    port ( 
--- MUX CPLD
---	mux_clk : out std_logic;
---	mux : out unsigned(3 downto 0);
---	mux_d : out unsigned(3 downto 0);
---	mux_q : in unsigned(3 downto 0);
 	sysclk: in std_logic;	
 	n_reset: in std_logic;	
 	cpuena_in: in std_logic;			
@@ -54,35 +49,16 @@ entity cfide is
 	spi_raw_ack : in std_logic;
 	enaWRreg    : in std_logic:='1';
 	
---	kb_clki: in std_logic;
---	kb_datai: in std_logic;
---	ms_clki: in std_logic;
---	ms_datai: in std_logic;
---	kb_clk: out std_logic;
---	kb_data: out std_logic;
---	ms_clk: out std_logic;
---	ms_data: out std_logic;
---	nreset: out std_logic;
---	ir: buffer std_logic;
 	ena1MHz: buffer std_logic; -- Needed by CDTV controller unit
 	irq_d: in std_logic :='1';
---	led: in std_logic_vector(1 downto 0);
 
 	amiser_txd: in std_logic;	-- CV: amiga serial txd		
 	amiser_rxd: out std_logic;  -- CV: amiga serial rxd
 
 -- USART
 	reconfigure : out std_logic;
---	usart_clk : in std_logic;
---	usart_rts : in std_logic;
 	fastramsize : out std_logic_vector(2 downto 0);
 	turbochipram : out std_logic;
---	reconfigure: in std_logic	-- reset Chameleon to core 0	
-
---	joystick1 : out unsigned(5 downto 0);
---	joystick2 : out unsigned(5 downto 0);
---	joystick3 : out unsigned(5 downto 0);
---	joystick4 : out unsigned(5 downto 0);
 	scandoubler : out std_logic;
 	freeze_n : in std_logic;
 	menu_n : in std_logic
@@ -145,19 +121,14 @@ signal SD_busy		: std_logic;
 signal spi_div: unsigned(7 downto 0);
 signal spi_speed: unsigned(7 downto 0);
 signal rom_data: std_logic_vector(15 downto 0);
---signal spi_raw_ack : std_logic;
 signal spi_wait : std_logic;
 signal spi_wait_d : std_logic;
 
 signal timecnt: unsigned(15 downto 0);
 signal timeprecnt: unsigned(15 downto 0);
 
---signal led_green	 : std_logic;
---signal led_red	 : std_logic;
---signal ir	 : std_logic;
 signal enacnt: unsigned(6 downto 0);
 
---signal usart_rx : std_logic :='1';
 
 signal freeze_n_r : std_logic;
 signal menu_n_r : std_logic;
@@ -171,20 +142,11 @@ signal menu_n_r2 : std_logic;
 	signal mux_d_reg : std_logic_vector(3 downto 0) := (others => '1');
 	signal mux_d_regd : std_logic_vector(3 downto 0) := (others => '1');
 
---signal reconfigure : std_logic :='0';
-
 signal slower : std_logic_vector(2 downto 0);
 	
 -- C64 IO signals
 
 signal button_reset_n : std_logic;
-
-signal c64_keys : unsigned(63 downto 0);
-signal c64_restore_key_n : std_logic;
-signal c64_nmi_n : std_logic;
-signal c64_joy1 : unsigned(5 downto 0);
-signal c64_joy2 : unsigned(5 downto 0);
-
 
 begin
 
@@ -199,86 +161,6 @@ begin
 	end if;
 end process;
 
-
--- Reverse order of direction signals.
---joystick1<=c64_joy1(5 downto 4)&c64_joy1(0)&c64_joy1(1)&c64_joy1(2)&c64_joy1(3);
---joystick2<=c64_joy2(5 downto 4)&c64_joy2(0)&c64_joy2(1)&c64_joy2(2)&c64_joy2(3);
-
--- C64 IO
--- FIXME - re-enable RS232-over-IEC
-
---	myIO : entity work.chameleon_io
---		generic map (
---			enable_docking_station => true,
---			enable_c64_joykeyb => true,
---			enable_c64_4player => true,
---			enable_raw_spi => true
---		)
---		port map (
---		-- Clocks
---			clk => sysclk,	-- present
---			clk_mux => sysclk, -- present
---			ena_1mhz => ena1Mhz, -- present
---			reset => not n_reset, -- present, but inverted
---			
---			no_clock => no_clock,  -- output
---			docking_station => docking_station, -- output
---			
---		-- Chameleon FPGA pins
---			-- C64 Clocks
---			phi2_n => phi2_n,
---			dotclock_n => dotclock_n, 
---			-- C64 cartridge control lines
---			io_ef_n => io_ef_n,
---			rom_lh_n => rom_lh_n,
---			-- SPI bus
---			spi_miso => sd_dimm,  -- present
---			-- CPLD multiplexer
---			mux_clk => mux_clk,  -- present
---			mux => mux,  -- present
---			mux_d => mux_d,  -- present
---			mux_q => mux_q,  -- present
---			
---			to_usb_rx => usart_rx,
---
---		-- SPI raw signals (enable_raw_spi must be set to true)
---			mmc_cs_n => NOT scs(1),
---			spi_raw_clk => NOT sck,
---			spi_raw_mosi => sd_out(15),
---			spi_raw_ack => spi_raw_ack,
---
---		-- LEDs
---			led_green => led(0),  -- present
---			led_red => led(1),  -- present
---			ir => ir,  -- present
---		
---		-- PS/2 Keyboard
---			ps2_keyboard_clk_out => kb_clki, -- present
---			ps2_keyboard_dat_out => kb_datai, -- present
---			ps2_keyboard_clk_in => kb_clk, -- present
---			ps2_keyboard_dat_in => kb_data, -- present
---	
---		-- PS/2 Mouse
---			ps2_mouse_clk_out => ms_clki, -- present
---			ps2_mouse_dat_out => ms_datai, -- present
---			ps2_mouse_clk_in => ms_clk, -- present
---			ps2_mouse_dat_in => ms_data, -- present
---
---		-- Buttons
---			button_reset_n => button_reset_n, -- present (nreset)
---
---		-- Joysticks
---			joystick1 => c64_joy1,
---			joystick2 => c64_joy2,
---			joystick3 => joystick3, 
---			joystick4 => joystick4,
---
---		-- Keyboards
---			keys => c64_keys,	-- missing - how to map?  Array, readable in software?
---			restore_key_n => c64_restore_key_n, -- missing
---			c64_nmi_n => c64_nmi_n -- missing			
---		);
---
 
 srom: startram
 	PORT MAP 
@@ -314,7 +196,7 @@ cpudata <=  rom_data WHEN ROM_select='1' ELSE
 part_in <= 
 			std_logic_vector(timecnt) WHEN addr(4 downto 1)="1000" ELSE	--DEE010
 			"XXXXXXXX"&"1"&"0000001" WHEN addr(4 downto 1)="1001" ELSE	--DEE012
-			"01" & not (c64_keys(63) and menu_n_r) & '0'&"00000011"&"0101";	-- Bits 3:0 -> memory size.  (1<<memsize gives the size in megabytes.)
+			"01" & not menu_n_r & '0'&"00000011"&"0101";	-- Bits 3:0 -> memory size.  (1<<memsize gives the size in megabytes.)
 			-- Yuck - but C64 joystick in port 1 interferes with keyboard scanning.
 												-- Bit  4 -> Turbo chipram supported
 												-- Bit  5 -> Reconfig supportred 

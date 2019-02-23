@@ -1,20 +1,3 @@
-// Copyright (C) 1991-2013 Altera Corporation
-// Your use of Altera Corporation's design tools, logic functions 
-// and other software and tools, and its AMPP partner logic 
-// functions, and any output files from any of the foregoing 
-// (including device programming or simulation files), and any 
-// associated documentation or information are expressly subject 
-// to the terms and conditions of the Altera Program License 
-// Subscription Agreement, Altera MegaCore Function License 
-// Agreement, or other applicable license agreement, including, 
-// without limitation, that your use is for the sole purpose of 
-// programming logic devices manufactured by Altera and sold by 
-// Altera or its authorized distributors.  Please refer to the 
-// applicable agreement for further details.
-
-// PROGRAM		"Quartus II 64-Bit"
-// VERSION		"Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
-// CREATED		"Mon Feb 18 22:56:40 2019"
 
 module fampiga_top(
 	clk8,
@@ -298,50 +281,28 @@ cfide	b2v_inst3(
 	.sd_di(migtohost_miso),
 	.sd_dimm(spi_miso),
 	.enaWRreg(enaWRreg),
-//	.kb_clki(kbci),
-//	.kb_datai(kbdi),
-//	.ms_clki(msci),
-//	.ms_datai(msdi),
 	.TxD(txd),
 	.amiser_txd(amiser_txd),
 	.reconfigure(reconfigure),
-//	.phi2_n(phi2_n),
-//	.dotclock_n(dotclock_n),
-//	.io_ef_n(ioef_n),
-//	.rom_lh_n(romlh_n),
 	.freeze_n(freeze_n),
-	.menu_n(usart_cts),
+	.menu_n(usart_cts & c64_keys[63]),
+	
 	.addr(addr[23:0]),
 	.cpudata_in(cpide_cpudatain),
-//	.led(led),
 	.memdata_in(SYNTHESIZED_WIRE_17),
-//	.mux_q(mux_q),
 	.state(state),
-//	.mux_clk(mux_clk),
 	.memce(memce),
 	.cpuena(cfide_cpuena),
 	
 	.sd_clk(mmc_clk),
 	.sd_do(sd_do),
 	.spi_raw_ack(spi_raw_ack),
-//	.kb_clk(kbc),
-//	.kb_data(kbd),
-//	.ms_clk(msc),
-//	.ms_data(msd),
-//	.nreset(master_reset_n),
-//	.ir(cdtv_ir),
 	.ena1MHz(ena1mhz),
 	.amiser_rxd(amiser_rxd),
 	.turbochipram(turbochipram),
 	.scandoubler(scandoubler),
 	.cpudata(cfide_cpudata),
 	.fastramsize(fastramcfg),
-//	.joystick1(c64joya),
-//	.joystick2(c64joyb),
-//	.joystick3(joyC),
-//	.joystick4(joyD),
-//	.mux(mux),
-//	.mux_d(mux_d),
 	.sd_cs(Spi_CS));
 
 
@@ -438,8 +399,6 @@ TG68K	b2v_inst7(
 	.uds(SYNTHESIZED_WIRE_1),
 	.lds(SYNTHESIZED_WIRE_2),
 	.rw(SYNTHESIZED_WIRE_3),
-	
-	
 	
 	.nResetOut(SYNTHESIZED_WIRE_12),
 	
@@ -568,7 +527,6 @@ chameleon_io myio(
 		.keys(c64_keys),	//-- how to map?  Array, readable in software?
 		.restore_key_n(c64_restore_key_n),
 		.c64_nmi_n(c64_nmi_n)
-//		.iec_atn_out(txd)
 	// 
 	);
 
