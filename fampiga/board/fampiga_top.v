@@ -89,16 +89,19 @@ output wire	[4:0] red;
 output wire	[12:0] sd_addr;
 inout wire	[15:0] sd_data;
 
+wire reconfigure;
+
 wire	[31:0] ad;
 wire	[31:0] addr;
 wire	amiser_rxd;
 wire	amiser_txd;
+wire txd;
 wire	[8:0] ascan;
 wire	[3:0] B;
 wire	[1:0] ba;
-wire	breset;
-wire	[5:0] c64joya;
-wire	[5:0] c64joyb;
+wire	master_reset_n;
+//wire	[5:0] c64joya;
+//wire	[5:0] c64joyb;
 wire	c_28m;
 wire	c_7m;
 wire	[31:0] cad;
@@ -157,17 +160,17 @@ wire	SYNTHESIZED_WIRE_1;
 wire	SYNTHESIZED_WIRE_2;
 wire	SYNTHESIZED_WIRE_3;
 wire	SYNTHESIZED_WIRE_4;
-wire	SYNTHESIZED_WIRE_5;
-wire	SYNTHESIZED_WIRE_6;
-wire	[5:0] SYNTHESIZED_WIRE_7;
-wire	[5:0] SYNTHESIZED_WIRE_8;
-wire	SYNTHESIZED_WIRE_9;
-wire	SYNTHESIZED_WIRE_10;
+wire	ena1mhz;
+wire	cdtv_ir;
+wire	[5:0] cdtv_joya;
+wire	[5:0] cdtv_joyb;
+wire	vsync;
+wire	hsync;
 wire	maincpu_reset;
 wire	SYNTHESIZED_WIRE_12;
 wire	sdram_hostL;
 wire	sdram_hostU;
-wire	SYNTHESIZED_WIRE_15;
+wire	migtohost_miso;
 wire	[15:0] cpide_cpudatain;
 wire	[15:0] SYNTHESIZED_WIRE_17;
 wire	SYNTHESIZED_WIRE_18;
@@ -187,12 +190,12 @@ wire	minimig_cpu_reset;
 assign	SYNTHESIZED_WIRE_28 = 1;
 assign	SYNTHESIZED_WIRE_29 = 0;
 assign	cfide_ipl = 1;
-wire	[1:0] GDFX_TEMP_SIGNAL_0;
+wire	[1:0] led;
 wire	[23:1] GDFX_TEMP_SIGNAL_1;
 wire	[2:0] GDFX_TEMP_SIGNAL_2;
 
 
-assign	GDFX_TEMP_SIGNAL_0 = {pwled,floppyled};
+assign	led = {pwled,floppyled};
 assign	GDFX_TEMP_SIGNAL_1 = {g,g,ra[21:1]};
 assign	GDFX_TEMP_SIGNAL_2 = {memce,state[1:0]};
 
@@ -226,7 +229,7 @@ Minimig1	b2v_inst1(
 	.cpurst(SYNTHESIZED_WIRE_4),
 	.locked(sdreset),
 	.sysclock(sysclk),
-	.sdo(SYNTHESIZED_WIRE_15),
+	.sdo(migtohost_miso),
 	._joy1(joyA),
 	._joy2(joyB),
 	._joy3(joyC),
@@ -249,8 +252,8 @@ Minimig1	b2v_inst1(
 	.msclko(msci),
 	.kbddato(kbdi),
 	.kbdclko(kbci),
-	._hsync(SYNTHESIZED_WIRE_10),
-	._vsync(SYNTHESIZED_WIRE_9),
+	._hsync(hsync),
+	._vsync(vsync),
 	.left(sigmaL),
 	.right(sigmaR),
 	
@@ -271,50 +274,20 @@ Minimig1	b2v_inst1(
 	defparam	b2v_inst1.NTSC = 0;
 
 
-
 chameleon_cdtv_remote	b2v_inst11(
 	.clk(sysclk),
-	.ena_1mhz(SYNTHESIZED_WIRE_5),
-	.ir(SYNTHESIZED_WIRE_6),
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	.joystick_a(SYNTHESIZED_WIRE_7),
-	.joystick_b(SYNTHESIZED_WIRE_8));
+	.ena_1mhz(ena1mhz),
+	.ir(cdtv_ir),
+	.joystick_a(cdtv_joya),
+	.joystick_b(cdtv_joyb));
 
 
-assign	joyA = SYNTHESIZED_WIRE_7 & c64joya;
+assign	joyA = cdtv_joya & joystick1;
+assign	joyB = cdtv_joyb & joystick2;
 
-assign	joyB = SYNTHESIZED_WIRE_8 & c64joyb;
-
-
-
-assign	nVSync =  ~SYNTHESIZED_WIRE_9;
-
-assign	nHSync =  ~SYNTHESIZED_WIRE_10;
-
+assign	nVSync =  ~vsync;
+assign	nHSync =  ~hsync;
 assign	SYNTHESIZED_WIRE_4 = ~(maincpu_reset & SYNTHESIZED_WIRE_12);
-
-
 
 cfide	b2v_inst3(
 	.sysclk(sysclk),
@@ -322,58 +295,58 @@ cfide	b2v_inst3(
 	.cpuena_in(zena),
 	.lds(sdram_hostL),
 	.uds(sdram_hostU),
-	.sd_di(SYNTHESIZED_WIRE_15),
+	.sd_di(migtohost_miso),
 	.sd_dimm(spi_miso),
 	.enaWRreg(enaWRreg),
-	.kb_clki(kbci),
-	.kb_datai(kbdi),
-	.ms_clki(msci),
-	.ms_datai(msdi),
-	
+//	.kb_clki(kbci),
+//	.kb_datai(kbdi),
+//	.ms_clki(msci),
+//	.ms_datai(msdi),
+	.TxD(txd),
 	.amiser_txd(amiser_txd),
-	.usart_clk(usart_clk),
-	.usart_rts(usart_rts),
-	.phi2_n(phi2_n),
-	.dotclock_n(dotclock_n),
-	.io_ef_n(ioef_n),
-	.rom_lh_n(romlh_n),
+	.reconfigure(reconfigure),
+//	.phi2_n(phi2_n),
+//	.dotclock_n(dotclock_n),
+//	.io_ef_n(ioef_n),
+//	.rom_lh_n(romlh_n),
 	.freeze_n(freeze_n),
 	.menu_n(usart_cts),
 	.addr(addr[23:0]),
 	.cpudata_in(cpide_cpudatain),
-	.led(GDFX_TEMP_SIGNAL_0),
+//	.led(led),
 	.memdata_in(SYNTHESIZED_WIRE_17),
-	.mux_q(mux_q),
+//	.mux_q(mux_q),
 	.state(state),
-	.mux_clk(mux_clk),
+//	.mux_clk(mux_clk),
 	.memce(memce),
 	.cpuena(cfide_cpuena),
 	
 	.sd_clk(mmc_clk),
 	.sd_do(sd_do),
-	.kb_clk(kbc),
-	.kb_data(kbd),
-	.ms_clk(msc),
-	.ms_data(msd),
-	.nreset(breset),
-	.ir(SYNTHESIZED_WIRE_6),
-	.ena1MHz(SYNTHESIZED_WIRE_5),
+	.spi_raw_ack(spi_raw_ack),
+//	.kb_clk(kbc),
+//	.kb_data(kbd),
+//	.ms_clk(msc),
+//	.ms_data(msd),
+//	.nreset(master_reset_n),
+//	.ir(cdtv_ir),
+	.ena1MHz(ena1mhz),
 	.amiser_rxd(amiser_rxd),
 	.turbochipram(turbochipram),
 	.scandoubler(scandoubler),
 	.cpudata(cfide_cpudata),
 	.fastramsize(fastramcfg),
-	.joystick1(c64joya),
-	.joystick2(c64joyb),
-	.joystick3(joyC),
-	.joystick4(joyD),
-	.mux(mux),
-	.mux_d(mux_d),
+//	.joystick1(c64joya),
+//	.joystick2(c64joyb),
+//	.joystick3(joyC),
+//	.joystick4(joyD),
+//	.mux(mux),
+//	.mux_d(mux_d),
 	.sd_cs(Spi_CS));
 
 
 
-assign	locked = SYNTHESIZED_WIRE_18 & breset;
+assign	locked = SYNTHESIZED_WIRE_18 & master_reset_n;
 
 
 sdram	b2v_inst5(
@@ -495,5 +468,124 @@ assign	red[0] = g;
 assign	ascan = 9'b111111111;
 assign	g = 0;
 assign	v = 1;
+
+
+
+//-----------------------------------------------------------------
+//-- reconfigure chameleon
+//-----------------------------------------------------------------
+
+wire usart_rx;
+
+chameleon_reconfigure reconf(
+		.clk(sysclk),
+		.reconfigure(reconfigure),
+		.serial_clk(usart_clk),
+		.serial_txd(usart_rx),
+		.serial_cts_n(usart_rts)
+	);
+
+	
+defparam myio.enable_docking_station = "TRUE";
+defparam myio.enable_c64_joykeyb = "TRUE";
+defparam myio.enable_c64_4player = "TRUE";
+defparam myio.enable_raw_spi = "TRUE";
+
+wire no_clock;
+wire docking_station;
+wire [63:0] c64_keys;
+wire c64_restore_key_n;
+wire c64_nmi_n;
+wire [5:0] c64_joy1;
+wire [5:0] c64_joy2;
+wire [5:0] joystick1;
+wire [5:0] joystick2;
+wire [5:0] joystick3;
+wire [5:0] joystick4;
+wire button_reset_n;
+
+wire spi_raw_ack;
+
+chameleon_io myio(
+		.clk(sysclk),	// present
+		.clk_mux(sysclk), // present
+		.ena_1mhz(ena1mhz), // present
+		.reset(~sdreset), // present, but inverted
+		
+		.no_clock(no_clock),  // output
+		.docking_station(docking_station), // output
+		
+	// Chameleon FPGA pins
+		// C64 Clocks
+		.phi2_n(phi2_n),
+		.dotclock_n(dotclock_n), 
+		// C64 cartridge control lines
+		.io_ef_n(ioef_n),
+		.rom_lh_n(romlh_n),
+		// SPI bus
+		.spi_miso(spi_miso),  // present
+//		-- CPLD multiplexer
+		.mux_clk(mux_clk),  // present
+		.mux(mux),  // present
+		.mux_d(mux_d),  // present
+		.mux_q(mux_q),  // present
+		
+		.to_usb_rx(usart_rx),
+
+	// SPI raw signals (enable_raw_spi must be set to true)
+		.mmc_cs_n(Spi_CS[1]),
+		.spi_raw_clk(mmc_clk),
+		.spi_raw_mosi(sd_do),
+		.spi_raw_ack(spi_raw_ack),
+
+	// LEDs
+		.led_green(led[0]), //  -- present
+		.led_red(led[1]), // -- present
+		.ir(cdtv_ir), // -- present
+	
+	// PS/2 Keyboard
+		.ps2_keyboard_clk_out(kbci), // present
+		.ps2_keyboard_dat_out(kbdi), // present
+		.ps2_keyboard_clk_in(kbc), // present
+		.ps2_keyboard_dat_in(kbd), // present
+
+	// PS/2 Mouse
+		.ps2_mouse_clk_out(msci), // present
+		.ps2_mouse_dat_out(msdi), // present
+		.ps2_mouse_clk_in(msc), // present
+		.ps2_mouse_dat_in(msd), // present
+
+	// Buttons
+		.button_reset_n(button_reset_n), // present (nreset)
+
+	// Joysticks
+		.joystick1(c64_joy1),
+		.joystick2(c64_joy2),
+		.joystick3(joystick3), 
+		.joystick4(joystick4),
+
+	// Keyboards
+		.keys(c64_keys),	//-- how to map?  Array, readable in software?
+		.restore_key_n(c64_restore_key_n),
+		.c64_nmi_n(c64_nmi_n)
+//		.iec_atn_out(txd)
+	// 
+	);
+
+// Reverse order of direction signals.
+assign joystick1={c64_joy1[5:4],c64_joy1[0],c64_joy1[1],c64_joy1[2],c64_joy1[3]};
+assign joystick2={c64_joy2[5:4],c64_joy2[0],c64_joy2[1],c64_joy2[2],c64_joy2[3]};
+
+// Reset circuit
+
+defparam myReset.resetCycles=131071;
+
+	gen_reset myReset(
+			.clk(sysclk),
+			.enable(1'b1),
+			.button(~button_reset_n),
+			.nreset(master_reset_n)
+		);
+
 
 endmodule

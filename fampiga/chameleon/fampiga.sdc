@@ -28,7 +28,7 @@ create_clock -name "clk8" -period 125.000ns [get_ports {clk8}] -waveform {0.000 
 # Automatically constrain PLL and other generated clocks
 derive_pll_clocks
 
-create_generated_clock -name sdram_clk_pin -source [get_nets {inst|altpll_component|auto_generated|wire_pll1_clk[0]}] [get_ports {sd_clk}]
+create_generated_clock -name sdram_clk_pin -source [get_nets {b2v_inst|altpll_component|auto_generated|wire_pll1_clk[0]}] [get_ports {sd_clk}]
 
 #**************************************************************
 # Set Clock Uncertainty
@@ -62,5 +62,5 @@ set_output_delay -clock sdram_clk_pin -min [expr -1.0 - 0.1] [get_ports {sd_ba_0
 # Multicycles
 
 # Without this, Quartus shoots for the wrong clock edge on inputs, due to the phase-shifted clock.
-set_multicycle_path -from [get_clocks {sdram_clk_pin}] -to [get_clocks {inst|altpll_component|auto_generated|pll1|clk[1]}] -setup -end 2
+set_multicycle_path -from [get_clocks {sdram_clk_pin}] -to [get_clocks {b2v_inst|altpll_component|auto_generated|pll1|clk[1]}] -setup -end 2
 

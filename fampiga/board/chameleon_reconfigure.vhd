@@ -42,6 +42,8 @@ architecture rtl of chameleon_reconfigure is
 	signal reconfig_pending : std_logic :='0';
 begin
 
+-- FIXME - need to filter sclk to avoid metastability issues.
+
 	process(clk,serial_clk,serial_cts_n)
 	begin
 		if rising_edge(clk) then
@@ -64,6 +66,7 @@ begin
 					reset <= '0';
 				else
 					reset <= '1';
+					serial_txd<='1';
 					resetcnt <=resetcnt+1;
 				end if;
 				
