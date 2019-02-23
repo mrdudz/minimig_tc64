@@ -1,104 +1,163 @@
-// Copyright (C) 1991-2013 Altera Corporation
-// Your use of Altera Corporation's design tools, logic functions 
-// and other software and tools, and its AMPP partner logic 
-// functions, and any output files from any of the foregoing 
-// (including device programming or simulation files), and any 
-// associated documentation or information are expressly subject 
-// to the terms and conditions of the Altera Program License 
-// Subscription Agreement, Altera MegaCore Function License 
-// Agreement, or other applicable license agreement, including, 
-// without limitation, that your use is for the sole purpose of 
-// programming logic devices manufactured by Altera and sold by 
-// Altera or its authorized distributors.  Please refer to the 
-// applicable agreement for further details.
 
-// PROGRAM		"Quartus II 64-Bit"
-// VERSION		"Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
-// CREATED		"Mon Feb 18 22:56:40 2019"
-
-module fampiga_top(
-	clk8,
+module fampiga_tc64v2_top
+(
+	clk50m,
+	phi2_n,
+	dotclk_n,
+	usart_cts,
+	freeze_btn,
+	reset_btn,
+	iec_present,
+	ps2iec_sel,
+	ps2iec,
+	ser_out_clk,
+	ser_out_dat,
+	ser_out_rclk,
+	iec_clk_out,
+	iec_srq_out,
+	iec_atn_out,
+	iec_dat_out,
+	flash_cs,
+	rtc_cs,
+	mmc_cs,
+	mmc_cd,
 	mmc_wp,
-	mmc_cd_n,
-	freeze_n,
-	usart_tx,
+	spi_clk,
+	spi_miso,
+	spi_mosi,
+	clock_ior,
+	clock_iow,
+	reset_in,
+	ioef,
+	romlh,
+	dma_out,
+	game_out,
+	exrom_out,
+	irq_in,
+	irq_out,
+	nmi_in,
+	nmi_out,
+	ba_in,
+	rw_in,
+	rw_out,
+	sa_dir,
+	sa_oe,
+	sa15_out,
+	low_a,
+	sd_dir,
+	sd_oe,
+	low_d,
+	ram_clk,
+	ram_ldqm,
+	ram_udqm,
+	ram_ras,
+	ram_cas,
+	ram_we,
+	ram_ba,
+	ram_a,
+	ram_d,
+	ir_data,
 	usart_clk,
 	usart_rts,
-	usart_cts,
-	spi_miso,
-	romlh_n,
-	ioef_n,
-	dotclock_n,
-	phi2_n,
-	mux_q,
-	mux_clk,
-	sd_ldqm,
-	sd_udqm,
-	sd_we_n,
-	sd_ras_n,
-	sd_cas_n,
-	sd_ba_0,
-	sd_ba_1,
-	sigmaL,
-	sigmaR,
-	nHSync,
-	nVSync,
-	sd_clk,
-	blu,
-	grn,
-	mux,
-	mux_d,
+	usart_rx,
+	usart_tx,
 	red,
-	sd_addr,
-	sd_data
+	grn,
+	blu,
+	hsync_n,
+	vsync_n,
+	sigma_l,
+	sigma_r
 );
 
+	input wire clk50m;
+	input wire phi2_n;
+input wire dotclk_n;
+	input wire usart_cts;
+	input wire freeze_btn;
+	input wire reset_btn;
+	input wire iec_present;
+	output wire ps2iec_sel;
+	input [3:0] ps2iec;
+	output wire ser_out_clk;
+	output wire ser_out_dat;
+	output wire ser_out_rclk;
+	output wire iec_clk_out;
+	output wire iec_srq_out;
+	output wire iec_atn_out;
+	output wire iec_dat_out;
+	output wire flash_cs;
+	output wire rtc_cs;
+	output wire mmc_cs;
+	input wire mmc_cd;
+	input wire mmc_wp;
+	output wire spi_clk;
+	input wire spi_miso;
+	output wire spi_mosi;
+	output wire clock_ior;
+	output wire clock_iow;
+	input wire reset_in;
+	input wire ioef;
+	input wire romlh;
+	output wire dma_out;
+	output wire game_out;
+	output wire exrom_out;
+	input wire irq_in;
+	output wire irq_out;
+	input wire nmi_in;
+	output wire nmi_out;
+	input wire ba_in;
+	input wire rw_in;
+	output wire rw_out;
+	output wire sa_dir;
+	output wire sa_oe;
+	output wire sa15_out;
+	inout [15:0] low_a;
+	output wire sd_dir;
+	output wire sd_oe;
+	inout [7:0] low_d;
+	output wire ram_clk;
+	output wire ram_ldqm;
+	output wire ram_udqm;
+	output wire ram_ras;
+	output wire ram_cas;
+	output wire ram_we;
+	output [1:0] ram_ba;
+	output [12:0] ram_a;
+	inout [15:0] ram_d;
+	input wire ir_data;
+	input wire usart_clk;
+	input wire usart_rts;
+	output wire usart_rx;
+	input wire usart_tx;
+	output [4:0] red;
+	output [4:0] grn;
+	output [4:0] blu;
+	output wire hsync_n;
+	output wire vsync_n;
+	output wire sigma_l;
+	output wire sigma_r;
 
-input wire	clk8;
-input wire	mmc_wp;
-input wire	mmc_cd_n;
-input wire	freeze_n;
-input wire	usart_tx;
-input wire	usart_clk;
-input wire	usart_rts;
-input wire	usart_cts;
-input wire	spi_miso;
-input wire	romlh_n;
-input wire	ioef_n;
-input wire	dotclock_n;
-input wire	phi2_n;
-input wire	[3:0] mux_q;
-output wire	mux_clk;
-output wire	sd_ldqm;
-output wire	sd_udqm;
-output wire	sd_we_n;
-output wire	sd_ras_n;
-output wire	sd_cas_n;
-output wire	sd_ba_0;
-output wire	sd_ba_1;
-output wire	sigmaL;
-output wire	sigmaR;
-output wire	nHSync;
-output wire	nVSync;
-output wire	sd_clk;
-output wire	[4:0] blu;
-output wire	[4:0] grn;
-output wire	[3:0] mux;
-output wire	[3:0] mux_d;
-output wire	[4:0] red;
-output wire	[12:0] sd_addr;
-inout wire	[15:0] sd_data;
+assign mmc_cs = Spi_CS[1];
+
+// Unused outputs
+
+assign flash_cs = 1'b1;
+assign rtc_cs = 1'b1;
+
+wire reconfigure;
 
 wire	[31:0] ad;
 wire	[31:0] addr;
 wire	amiser_rxd;
 wire	amiser_txd;
+wire txd;
 wire	[8:0] ascan;
 wire	[3:0] B;
 wire	[1:0] ba;
-wire	breset;
-wire	[5:0] c64joya;
-wire	[5:0] c64joyb;
+wire	master_reset_n;
+//wire	[5:0] c64joya;
+//wire	[5:0] c64joyb;
 wire	c_28m;
 wire	c_7m;
 wire	[31:0] cad;
@@ -157,18 +216,18 @@ wire	SYNTHESIZED_WIRE_1;
 wire	SYNTHESIZED_WIRE_2;
 wire	SYNTHESIZED_WIRE_3;
 wire	SYNTHESIZED_WIRE_4;
-wire	SYNTHESIZED_WIRE_5;
-wire	SYNTHESIZED_WIRE_6;
-wire	[5:0] SYNTHESIZED_WIRE_7;
-wire	[5:0] SYNTHESIZED_WIRE_8;
-wire	SYNTHESIZED_WIRE_9;
-wire	SYNTHESIZED_WIRE_10;
-wire	SYNTHESIZED_WIRE_35;
+wire	ena1mhz;
+wire	cdtv_ir;
+wire	[5:0] cdtv_joya;
+wire	[5:0] cdtv_joyb;
+wire	vsync;
+wire	hsync;
+wire	maincpu_reset;
 wire	SYNTHESIZED_WIRE_12;
-wire	SYNTHESIZED_WIRE_36;
-wire	SYNTHESIZED_WIRE_37;
-wire	SYNTHESIZED_WIRE_15;
-wire	[15:0] SYNTHESIZED_WIRE_38;
+wire	sdram_hostL;
+wire	sdram_hostU;
+wire	migtohost_miso;
+wire	[15:0] cpide_cpudatain;
 wire	[15:0] SYNTHESIZED_WIRE_17;
 wire	SYNTHESIZED_WIRE_18;
 wire	SYNTHESIZED_WIRE_21;
@@ -179,27 +238,27 @@ wire	[15:0] SYNTHESIZED_WIRE_25;
 wire	SYNTHESIZED_WIRE_27;
 wire	SYNTHESIZED_WIRE_28;
 wire	[0:1] SYNTHESIZED_WIRE_29;
-wire	[15:0] SYNTHESIZED_WIRE_30;
-wire	[0:2] SYNTHESIZED_WIRE_31;
-wire	SYNTHESIZED_WIRE_33;
-wire	SYNTHESIZED_WIRE_34;
+wire	[15:0] cfide_cpudata;
+wire	[0:2] cfide_ipl;
+wire	cfide_cpuena;
+wire	minimig_cpu_reset;
 
 assign	SYNTHESIZED_WIRE_28 = 1;
 assign	SYNTHESIZED_WIRE_29 = 0;
-assign	SYNTHESIZED_WIRE_31 = 1;
-wire	[1:0] GDFX_TEMP_SIGNAL_0;
+assign	cfide_ipl = 1;
+
 wire	[23:1] GDFX_TEMP_SIGNAL_1;
 wire	[2:0] GDFX_TEMP_SIGNAL_2;
 
 
-assign	GDFX_TEMP_SIGNAL_0 = {pwled,floppyled};
+assign	led = {pwled,floppyled};
 assign	GDFX_TEMP_SIGNAL_1 = {g,g,ra[21:1]};
 assign	GDFX_TEMP_SIGNAL_2 = {memce,state[1:0]};
 
 
-palclk	b2v_inst(
-	.inclk0(clk8),
-	.c0(sd_clk),
+palclk_v2	b2v_inst(
+	.inclk0(clk50m),
+	.c0(ram_clk),
 	.c1(sysclk),
 	.c2(c_28m),
 	.c3(c_7m),
@@ -226,7 +285,7 @@ Minimig1	b2v_inst1(
 	.cpurst(SYNTHESIZED_WIRE_4),
 	.locked(sdreset),
 	.sysclock(sysclk),
-	.sdo(SYNTHESIZED_WIRE_15),
+	.sdo(migtohost_miso),
 	._joy1(joyA),
 	._joy2(joyB),
 	._joy3(joyC),
@@ -237,7 +296,7 @@ Minimig1	b2v_inst1(
 	.cpu_wrdata(cwr),
 	.ramdata_in(dout),
 	._cpu_dtack(dtack),
-	._cpu_reset(SYNTHESIZED_WIRE_34),
+	._cpu_reset(minimig_cpu_reset),
 	._ram_bhe(SYNTHESIZED_WIRE_21),
 	._ram_ble(SYNTHESIZED_WIRE_22),
 	._ram_we(SYNTHESIZED_WIRE_23),
@@ -249,10 +308,10 @@ Minimig1	b2v_inst1(
 	.msclko(msci),
 	.kbddato(kbdi),
 	.kbdclko(kbci),
-	._hsync(SYNTHESIZED_WIRE_10),
-	._vsync(SYNTHESIZED_WIRE_9),
-	.left(sigmaL),
-	.right(sigmaR),
+	._hsync(hsync),
+	._vsync(vsync),
+	.left(sigma_l),
+	.right(sigma_r),
 	
 	.floppyled(floppyled),
 	
@@ -271,116 +330,64 @@ Minimig1	b2v_inst1(
 	defparam	b2v_inst1.NTSC = 0;
 
 
-
 chameleon_cdtv_remote	b2v_inst11(
 	.clk(sysclk),
-	.ena_1mhz(SYNTHESIZED_WIRE_5),
-	.ir(SYNTHESIZED_WIRE_6),
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	.joystick_a(SYNTHESIZED_WIRE_7),
-	.joystick_b(SYNTHESIZED_WIRE_8));
+	.ena_1mhz(ena1mhz),
+	.ir(cdtv_ir),
+	.joystick_a(cdtv_joya),
+	.joystick_b(cdtv_joyb));
 
 
-assign	joyA = SYNTHESIZED_WIRE_7 & c64joya;
+assign	joyA = cdtv_joya & joystick1;
+assign	joyB = cdtv_joyb & joystick2;
 
-assign	joyB = SYNTHESIZED_WIRE_8 & c64joyb;
-
-
-
-assign	nVSync =  ~SYNTHESIZED_WIRE_9;
-
-assign	nHSync =  ~SYNTHESIZED_WIRE_10;
-
-assign	SYNTHESIZED_WIRE_4 = ~(SYNTHESIZED_WIRE_35 & SYNTHESIZED_WIRE_12);
-
-
+assign	vsync_n =  ~vsync;
+assign	hsync_n =  ~hsync;
+assign	SYNTHESIZED_WIRE_4 = ~(maincpu_reset & SYNTHESIZED_WIRE_12);
 
 cfide	b2v_inst3(
 	.sysclk(sysclk),
 	.n_reset(sdreset),
 	.cpuena_in(zena),
-	.lds(SYNTHESIZED_WIRE_36),
-	.uds(SYNTHESIZED_WIRE_37),
-	.sd_di(SYNTHESIZED_WIRE_15),
+	.lds(sdram_hostL),
+	.uds(sdram_hostU),
+	.sd_di(migtohost_miso),
 	.sd_dimm(spi_miso),
 	.enaWRreg(enaWRreg),
-	.kb_clki(kbci),
-	.kb_datai(kbdi),
-	.ms_clki(msci),
-	.ms_datai(msdi),
-	
+	.TxD(txd),
 	.amiser_txd(amiser_txd),
-	.usart_clk(usart_clk),
-	.usart_rts(usart_rts),
-	.phi2_n(phi2_n),
-	.dotclock_n(dotclock_n),
-	.io_ef_n(ioef_n),
-	.rom_lh_n(romlh_n),
-	.freeze_n(freeze_n),
-	.menu_n(usart_cts),
-	.addr(addr[23:0]),
-	.cpudata_in(SYNTHESIZED_WIRE_38),
-	.led(GDFX_TEMP_SIGNAL_0),
-	.memdata_in(SYNTHESIZED_WIRE_17),
-	.mux_q(mux_q),
-	.state(state),
-	.mux_clk(mux_clk),
-	.memce(memce),
-	.cpuena(SYNTHESIZED_WIRE_33),
+	.reconfigure(reconfigure),
+	.freeze_n(freeze_btn),
+	.menu_n(usart_cts & c64_keys[63]),
 	
-	.sd_clk(mmc_clk),
+	.addr(addr[23:0]),
+	.cpudata_in(cpide_cpudatain),
+	.memdata_in(SYNTHESIZED_WIRE_17),
+	.state(state),
+	.memce(memce),
+	.cpuena(cfide_cpuena),
+	
+	.sd_clk(spi_clk),
 	.sd_do(sd_do),
-	.kb_clk(kbc),
-	.kb_data(kbd),
-	.ms_clk(msc),
-	.ms_data(msd),
-	.nreset(breset),
-	.ir(SYNTHESIZED_WIRE_6),
-	.ena1MHz(SYNTHESIZED_WIRE_5),
+	.spi_raw_ack(1'b1),
+	.ena1MHz(ena1mhz),
 	.amiser_rxd(amiser_rxd),
 	.turbochipram(turbochipram),
 	.scandoubler(scandoubler),
-	.cpudata(SYNTHESIZED_WIRE_30),
+	.cpudata(cfide_cpudata),
 	.fastramsize(fastramcfg),
-	.joystick1(c64joya),
-	.joystick2(c64joyb),
-	.joystick3(joyC),
-	.joystick4(joyD),
-	.mux(mux),
-	.mux_d(mux_d),
 	.sd_cs(Spi_CS));
 
+assign spi_mosi = sd_do;
 
-
-assign	locked = SYNTHESIZED_WIRE_18 & breset;
+assign	locked = SYNTHESIZED_WIRE_18 & master_reset_n;
 
 
 sdram	b2v_inst5(
 	.sysclk(sysclk),
 	.reset_in(locked),
-	.hostL(SYNTHESIZED_WIRE_36),
-	.hostU(SYNTHESIZED_WIRE_37),
+	.hostL(sdram_hostL),
+	.hostU(sdram_hostU),
 	.cpuU(cuds),
 	.cpuL(clds),
 	.cpu_dma(cdma),
@@ -396,11 +403,11 @@ sdram	b2v_inst5(
 	.cpuWR(cwr),
 	.hostAddr(addr[23:0]),
 	.hostState(GDFX_TEMP_SIGNAL_2),
-	.hostWR(SYNTHESIZED_WIRE_38),
-	.sdata(sd_data),
-	.sd_we(sd_we_n),
-	.sd_ras(sd_ras_n),
-	.sd_cas(sd_cas_n),
+	.hostWR(cpide_cpudatain),
+	.sdata(ram_d),
+	.sd_we(ram_we),
+	.sd_ras(ram_ras),
+	.sd_cas(ram_cas),
 	.hostena(zena),
 	.cpuena(cpuena),
 	.reset_out(sdreset),
@@ -414,7 +421,7 @@ sdram	b2v_inst5(
 	.dqm(dqm),
 	.hostRD(SYNTHESIZED_WIRE_17),
 	
-	.sdaddr(sd_addr)
+	.sdaddr(ram_a)
 	);
 
 
@@ -424,16 +431,16 @@ TG68KdotC_Kernel	b2v_inst6(
 	.clkena_in(SYNTHESIZED_WIRE_27),
 	.IPL_autovector(SYNTHESIZED_WIRE_28),
 	.CPU(SYNTHESIZED_WIRE_29),
-	.data_in(SYNTHESIZED_WIRE_30),
-	.IPL(SYNTHESIZED_WIRE_31),
+	.data_in(cfide_cpudata),
+	.IPL(cfide_ipl),
 	
-	.nUDS(SYNTHESIZED_WIRE_37),
-	.nLDS(SYNTHESIZED_WIRE_36),
+	.nUDS(sdram_hostU),
+	.nLDS(sdram_hostL),
 	
 	
 	.addr(addr),
 	.busstate(state),
-	.data_write(SYNTHESIZED_WIRE_38)
+	.data_write(cpide_cpudatain)
 	
 	);
 	defparam	b2v_inst6.BitField = 0;
@@ -446,7 +453,7 @@ TG68KdotC_Kernel	b2v_inst6(
 
 TG68K	b2v_inst7(
 	.clk(sysclk),
-	.reset(SYNTHESIZED_WIRE_35),
+	.reset(maincpu_reset),
 	.clkena_in(v),
 	.dtack(dtack),
 	.vpa(v),
@@ -466,8 +473,6 @@ TG68K	b2v_inst7(
 	.lds(SYNTHESIZED_WIRE_2),
 	.rw(SYNTHESIZED_WIRE_3),
 	
-	
-	
 	.nResetOut(SYNTHESIZED_WIRE_12),
 	
 	.cpuDMA(cdma),
@@ -478,14 +483,14 @@ TG68K	b2v_inst7(
 	.data_write(cwr),
 	.ramaddr(cad));
 
-assign	SYNTHESIZED_WIRE_27 = SYNTHESIZED_WIRE_33 & enaWRreg;
+assign	SYNTHESIZED_WIRE_27 = cfide_cpuena & enaWRreg;
 
-assign	SYNTHESIZED_WIRE_35 = SYNTHESIZED_WIRE_34 & sdreset;
+assign	maincpu_reset = minimig_cpu_reset & sdreset;
 
-assign	sd_ldqm = dqm[0];
-assign	sd_udqm = dqm[1];
-assign	sd_ba_0 = ba[0];
-assign	sd_ba_1 = ba[1];
+assign	ram_ldqm = dqm[0];
+assign	ram_udqm = dqm[1];
+assign	ram_ba[0] = ba[0];
+assign	ram_ba[1] = ba[1];
 assign	blu[4:1] = B;
 assign	blu[0] = g;
 assign	grn[4:1] = GR;
@@ -495,5 +500,150 @@ assign	red[0] = g;
 assign	ascan = 9'b111111111;
 assign	g = 0;
 assign	v = 1;
+
+
+//-----------------------------------------------------------------
+//-- reconfigure chameleon
+//-----------------------------------------------------------------
+
+chameleon_reconfigure reconf(
+		.clk(sysclk),
+		.reconfigure(reconfigure),
+		.serial_clk(usart_clk),
+		.serial_txd(usart_rx),
+		.serial_cts_n(usart_rts)
+	);
+
+	wire iec_clk_in;
+	wire iec_srq_in;
+	wire iec_atn_in;
+	wire iec_dat_in;
+
+	assign iec_clk_out = 1'b1;
+	assign iec_srq_out = 1'b1;
+	assign iec_atn_out = 1'b1;
+	assign iec_dat_out = 1'b1;
+// PS2IEC multiplexer
+
+	chameleon2_io_ps2iec ps2iecmux
+	(
+		.clk(sysclk),
+
+		.ps2iec_sel(ps2iec_sel),
+		.ps2iec(ps2iec),
+
+		.ps2_mouse_clk(msc),
+		.ps2_mouse_dat(msd),
+		.ps2_keyboard_clk(kbc),
+		.ps2_keyboard_dat(kbd),
+
+		.iec_clk(iec_clk_in),
+		.iec_srq(iec_srq_in),
+		.iec_atn(iec_atn_in),
+		.iec_dat(iec_dat_in)
+	);
+
+
+// LED, PS2 and reset shiftregister
+
+	chameleon2_io_shiftreg ledps2resetshiftreg
+	(
+		.clk(sysclk),
+
+		.ser_out_clk(ser_out_clk),
+		.ser_out_dat(ser_out_dat),
+		.ser_out_rclk(ser_out_rclk),
+
+		.reset_c64(1'b0),
+		.reset_iec(1'b0),
+		.ps2_mouse_clk(msci),
+		.ps2_mouse_dat(msdi),
+		.ps2_keyboard_clk(kbci),
+		.ps2_keyboard_dat(kbdi),
+		.led_green(pwled),
+		.led_red(floppyled)
+	);
+
+	
+defparam myio.enable_docking_station = "TRUE";
+defparam myio.enable_c64_joykeyb = "TRUE";
+defparam myio.enable_c64_4player = "TRUE";
+
+wire no_clock;
+wire docking_station;
+wire [63:0] c64_keys;
+wire c64_restore_key_n;
+wire c64_nmi_n;
+wire [5:0] c64_joy1;
+wire [5:0] c64_joy2;
+wire [5:0] joystick1;
+wire [5:0] joystick2;
+wire [5:0] joystick3;
+wire [5:0] joystick4;
+
+chameleon2_io myio(
+		.clk(sysclk),	// present
+		.ena_1mhz(ena1mhz), // present
+		.reset(~sdreset), // present, but inverted
+		
+		.no_clock(no_clock),  // output
+		.docking_station(docking_station), // output
+		
+	// Chameleon FPGA pins
+		// C64 Clocks
+		.phi2_n(phi2_n),
+		.dotclock_n(dotclk_n), 
+		// C64 cartridge control lines
+
+		.ir_data(ir_data),
+		.clock_ior(clock_ior),
+		.clock_iow(clock_iow),
+
+		.ioef(ioef),
+		.romlh(romlh),
+
+		.dma_out(dma_out),
+		.game_out(game_out),
+		.exrom_out(exrom_out),
+
+		.ba_in(ba_in),
+		.rw_out(rw_out),
+
+		.sa_dir(sa_dir),
+		.sa_oe(sa_oe),
+		.sa15_out(sa15_out),
+		.low_a(low_a),
+
+		.sd_dir(sd_dir),
+		.sd_oe(sd_oe),
+		.low_d(low_d),
+		
+	// Joysticks
+		.joystick1(c64_joy1),
+		.joystick2(c64_joy2),
+		.joystick3(joystick3), 
+		.joystick4(joystick4),
+
+	// Keyboards
+		.keys(c64_keys),	//-- how to map?  Array, readable in software?
+		.restore_key_n(c64_restore_key_n)
+	// 
+	);
+
+// Reverse order of direction signals.
+assign joystick1={c64_joy1[5:4],c64_joy1[0],c64_joy1[1],c64_joy1[2],c64_joy1[3]};
+assign joystick2={c64_joy2[5:4],c64_joy2[0],c64_joy2[1],c64_joy2[2],c64_joy2[3]};
+
+// Reset circuit
+
+defparam myReset.resetCycles=131071;
+
+	gen_reset myReset(
+			.clk(sysclk),
+			.enable(1'b1),
+			.button(~reset_btn),
+			.nreset(master_reset_n)
+		);
+
 
 endmodule
