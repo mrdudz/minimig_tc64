@@ -143,7 +143,7 @@ assign mmc_cs = Spi_CS[1];
 // Unused outputs
 
 assign flash_cs = 1'b1;
-assign rtc_cs = 1'b1;
+assign rtc_cs = 1'b0;
 
 wire reconfigure;
 

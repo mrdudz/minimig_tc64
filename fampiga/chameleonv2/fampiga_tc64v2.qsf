@@ -252,7 +252,6 @@ set_global_assignment -name QIP_FILE ../board/Cache_DataRAM.qip
 set_global_assignment -name VERILOG_FILE ../board/TwoWayCache.v
 set_global_assignment -name VHDL_FILE ../board/chameleon_reconfigure.vhd
 set_global_assignment -name VHDL_FILE ../board/chameleon_cdtv_remote.vhd
-set_global_assignment -name VHDL_FILE ../board/palclk_v2.vhd
 set_global_assignment -name VHDL_FILE ../board/cfide.vhd
 set_global_assignment -name SOURCE_FILE ../board/JBboot.cmp
 set_global_assignment -name AHDL_FILE ../board/JBboot.tdf
