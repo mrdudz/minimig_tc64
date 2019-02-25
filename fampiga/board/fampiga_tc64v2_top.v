@@ -142,6 +142,13 @@ assign mmc_cs = Spi_CS[1];
 
 // Unused outputs
 
+assign iec_clk_out = 1'b0;
+assign iec_atn_out = 1'b0;
+assign iec_dat_out = 1'b0;
+assign iec_srq_out = 1'b0;
+assign irq_out = 1'b0;
+assign nmi_out = 1'b0;
+
 assign flash_cs = 1'b1;
 assign rtc_cs = 1'b0;
 
@@ -251,7 +258,6 @@ wire	[23:1] GDFX_TEMP_SIGNAL_1;
 wire	[2:0] GDFX_TEMP_SIGNAL_2;
 
 
-assign	led = {pwled,floppyled};
 assign	GDFX_TEMP_SIGNAL_1 = {g,g,ra[21:1]};
 assign	GDFX_TEMP_SIGNAL_2 = {memce,state[1:0]};
 
@@ -519,10 +525,6 @@ chameleon_reconfigure reconf(
 	wire iec_atn_in;
 	wire iec_dat_in;
 
-	assign iec_clk_out = 1'b1;
-	assign iec_srq_out = 1'b1;
-	assign iec_atn_out = 1'b1;
-	assign iec_dat_out = 1'b1;
 // PS2IEC multiplexer
 
 	chameleon2_io_ps2iec ps2iecmux
@@ -573,7 +575,6 @@ wire no_clock;
 wire docking_station;
 wire [63:0] c64_keys;
 wire c64_restore_key_n;
-wire c64_nmi_n;
 wire [5:0] c64_joy1;
 wire [5:0] c64_joy2;
 wire [5:0] joystick1;
