@@ -201,7 +201,6 @@ wire	kbdi;
 wire	locked;
 wire	memce;
 wire	[5:0] memcfg;
-wire	mmc_clk;
 wire	msc;
 wire	msci;
 wire	msd;
@@ -287,7 +286,7 @@ Minimig1	b2v_inst1(
 	.msclk(msc),
 	.direct_sdi(spi_miso),
 	.sdi(sd_do),
-	.sck(mmc_clk),
+	.sck(spi_clk),
 	.cpurst(SYNTHESIZED_WIRE_4),
 	.locked(sdreset),
 	.sysclock(sysclk),
