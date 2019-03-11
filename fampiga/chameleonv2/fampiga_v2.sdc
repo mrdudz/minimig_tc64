@@ -29,7 +29,7 @@ create_clock -name "clk50m" -period 20.000ns [get_ports {clk50m}] -waveform {0.0
 derive_pll_clocks
 
 create_generated_clock -name sdram_clk_pin -source [get_nets {b2v_inst|altpll_component|auto_generated|wire_pll1_clk[0]}] [get_ports {ram_clk}]
-
+create_generated_clock -name spi_clk -source [get_nets {b2v_inst|altpll_component|auto_generated|wire_pll1_clk[1]}] -divide_by 8 [get_registers {cfide:b2v_inst3|sck}]
 #**************************************************************
 # Set Clock Uncertainty
 #**************************************************************
@@ -55,8 +55,9 @@ set_output_delay -clock sdram_clk_pin -min [expr -1.0 - 0.1] [get_ports ram_d*]
 set_output_delay -clock sdram_clk_pin -max [expr 1.5 + 0.1] [get_ports ram_a*]
 set_output_delay -clock sdram_clk_pin -min [expr -1.0 - 0.1] [get_ports ram_a*]
 
-set_output_delay -clock sdram_clk_pin -max [expr 1.5 + 0.1] [get_ports {ram_*}]
-set_output_delay -clock sdram_clk_pin -min [expr -1.0 - 0.1] [get_ports {ram_*}]
+set_output_delay -clock sdram_clk_pin -max [expr 1.5 + 0.1] [get_ports {ram_*dqm ram_*as ram_we ram_ba*}]
+set_output_delay -clock sdram_clk_pin -min [expr -1.0 - 0.1] [get_ports {ram_*dqm ram_*as ram_we ram_ba*}]
+
 
 
 # Multicycles
