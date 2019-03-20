@@ -567,6 +567,7 @@ chameleon_reconfigure reconf(
 
 	
 defparam myio.enable_docking_station = "TRUE";
+defparam myio.enable_cdtv_remote = "TRUE";
 defparam myio.enable_c64_joykeyb = "TRUE";
 defparam myio.enable_c64_4player = "TRUE";
 
