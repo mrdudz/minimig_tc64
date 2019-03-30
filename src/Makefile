@@ -2,11 +2,15 @@ C_SRC=fat.c fdd.c fpga.c hardware.c  hdd.c main.c menu.c mmc.c osd.c printf.c sw
 KLIBC_SRC=vsnprintf.c sprintf.c memcpy.c memcmp.c strcpy.c strcat.c strncat.c strncmp.c strlen.c memset.c strncpy.c strchr.c
 A_SRC=startup.s
 
+MEMCHECK_SRC=memcheck.c
+
 BUILD_DIR=BUILD
 C_OBJ=$(patsubst %.c,$(BUILD_DIR)/%.o,$(C_SRC))
 LIBC_OBJ=$(patsubst %.c,$(BUILD_DIR)/%.o,$(KLIBC_SRC))
 A_OBJ=$(patsubst %.s,$(BUILD_DIR)/%.o,$(A_SRC))
 OBJ=$(C_OBJ) $(A_OBJ)
+
+MEMCHECK_OBJ=$(patsubst %.c,$(BUILD_DIR)/%.o,$(MEMCHECK_SRC)) $(A_OBJ)
 
 ARCH=68000
 CC=m68k-elf-gcc
@@ -20,7 +24,10 @@ OUTPUT=OSD_CA01.sys
 LINK_SCRIPT=osdcpu.ld
 LIBC_TARGET=libc.a
 
-all: $(BUILD_DIR) $(LIBC_TARGET) $(OUTPUT)
+MEMCHECK_E=memcheck.elf
+MEMCHECK_O=memcheck.sys
+
+all: $(BUILD_DIR) $(LIBC_TARGET) $(OUTPUT) $(MEMCHECK_O)
 
 clean:
 	rm -rf $(BUILD_DIR) $(LIBC_TARGET) $(ELF) $(OUTPUT)
@@ -33,6 +40,12 @@ $(OUTPUT): $(ELF)
 
 $(ELF): $(OBJ) $(LINK_SCRIPT)
 	$(CC) $(LDFLAGS) -o $@ -T $(LINK_SCRIPT) $(OBJ) $(NEWLIB)
+
+$(MEMCHECK_O): $(MEMCHECK_E)
+	$(OBJCOPY) -O binary $(MEMCHECK_E) -j .code $(MEMCHECK_O)
+
+$(MEMCHECK_E): $(MEMCHECK_OBJ) $(LINK_SCRIPT)
+	$(CC) $(LDFLAGS) -o $@ -T $(LINK_SCRIPT) $(MEMCHECK_OBJ) $(NEWLIB)
 
 $(BUILD_DIR):
 	mkdir $(BUILD_DIR)
