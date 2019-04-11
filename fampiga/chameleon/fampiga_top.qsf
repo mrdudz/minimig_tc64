@@ -155,7 +155,6 @@ set_global_assignment -name FITTER_EFFORT "AUTO FIT"
 set_global_assignment -name CYCLONEII_OPTIMIZATION_TECHNIQUE BALANCED
 set_global_assignment -name GENERATE_RBF_FILE ON
 set_global_assignment -name FORCE_CONFIGURATION_VCCIO ON
-set_global_assignment -name MISC_FILE "D:/_chameleon/dockingstation/chameleon/fampiga_top.dpf"
 set_global_assignment -name FMAX_REQUIREMENT "108 MHz"
 set_global_assignment -name ENABLE_CLOCK_LATENCY ON
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top

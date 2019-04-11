@@ -223,7 +223,6 @@ wire	SYNTHESIZED_WIRE_2;
 wire	SYNTHESIZED_WIRE_3;
 wire	SYNTHESIZED_WIRE_4;
 wire	ena1mhz;
-wire	cdtv_ir;
 wire	[5:0] cdtv_joya;
 wire	[5:0] cdtv_joyb;
 wire	vsync;
@@ -334,17 +333,29 @@ Minimig1	b2v_inst1(
 	.red(R));
 	defparam	b2v_inst1.NTSC = 0;
 
+wire key_power;
+
+// Synchronise IR input
+reg ir_d;
+reg ir;
+always @(posedge sysclk)
+begin
+	ir_d<=ir_data;
+	ir<=ir_d;
+end
 
 chameleon_cdtv_remote	b2v_inst11(
 	.clk(sysclk),
 	.ena_1mhz(ena1mhz),
-	.ir(cdtv_ir),
+	.ir(ir),
+	.key_power(key_power),
 	.joystick_a(cdtv_joya),
 	.joystick_b(cdtv_joyb));
 
-
-assign	joyA = cdtv_joya & joystick1;
-assign	joyB = cdtv_joyb & joystick2;
+assign	joyA = {cdtv_joya[5:4],cdtv_joya[0],cdtv_joya[1],cdtv_joya[2],cdtv_joya[3]}
+						& joystick1;
+assign	joyB = {cdtv_joyb[5:4],cdtv_joyb[0],cdtv_joyb[1],cdtv_joyb[2],cdtv_joyb[3]}
+						& joystick2;
 
 assign	vsync_n =  ~vsync;
 assign	hsync_n =  ~hsync;
@@ -363,7 +374,7 @@ cfide	b2v_inst3(
 	.amiser_txd(amiser_txd),
 	.reconfigure(reconfigure),
 	.freeze_n(freeze_btn),
-	.menu_n(usart_cts & c64_keys[63]),
+	.menu_n(usart_cts & c64_keys[63] & ~key_power),
 	
 	.addr(addr[23:0]),
 	.cpudata_in(cpide_cpudatain),
@@ -567,7 +578,7 @@ chameleon_reconfigure reconf(
 
 	
 defparam myio.enable_docking_station = "TRUE";
-defparam myio.enable_cdtv_remote = "TRUE";
+defparam myio.enable_cdtv_remote = "FALSE";
 defparam myio.enable_c64_joykeyb = "TRUE";
 defparam myio.enable_c64_4player = "TRUE";
 
@@ -596,7 +607,7 @@ chameleon2_io myio(
 		.dotclock_n(dotclk_n), 
 		// C64 cartridge control lines
 
-		.ir_data(ir_data),
+//		.ir_data(ir_data),
 		.clock_ior(clock_ior),
 		.clock_iow(clock_iow),
 
