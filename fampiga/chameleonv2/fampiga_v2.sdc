@@ -41,8 +41,8 @@ derive_clock_uncertainty;
 #**************************************************************
 
 # Very narrow window here.
-set_input_delay -clock sdram_clk_pin -max [expr 5.4 + 1.0 + 1.0] [get_ports ram_d*]
-set_input_delay -clock sdram_clk_pin -min [expr 1 + 1.0 + 1.0] [get_ports ram_d*]
+set_input_delay -clock sdram_clk_pin -max [expr 5.4 + 1.0 + 0.1] [get_ports ram_d*]
+set_input_delay -clock sdram_clk_pin -min [expr 1 + 0.1] [get_ports ram_d*]
 
 #**************************************************************
 # Set Output Delay
