@@ -250,7 +250,7 @@ wire	minimig_cpu_reset;
 
 assign	SYNTHESIZED_WIRE_28 = 1;
 assign	SYNTHESIZED_WIRE_29 = 0;
-assign	cfide_ipl = 1;
+assign	cfide_ipl = 3'b111;
 
 wire	[23:1] GDFX_TEMP_SIGNAL_1;
 wire	[2:0] GDFX_TEMP_SIGNAL_2;

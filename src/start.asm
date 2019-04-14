@@ -9,7 +9,7 @@
        xdef      _SwapWW
 RS232_base	            equ			$DA8000
 		SECTION	,CODE
-		move.l	#$1000,a7
+		lea	stack_top,a7
 		jmp _main
 ;_SPI:       
 ;;	   move.b    7(A7),$da8001

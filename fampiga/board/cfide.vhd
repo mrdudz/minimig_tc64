@@ -161,18 +161,34 @@ begin
 	end if;
 end process;
 
-
-srom: startram
+bootrom : entity work.OSDBoot_68k_ROM
+	generic map
+	(
+		maxAddrBitBRAM => 12
+	)
 	PORT MAP 
 	(
-		address => addr(11 downto 1),	--: IN STD_LOGIC_VECTOR (11 DOWNTO 0);
-		byteena(0)	=> not lds,			--	: IN STD_LOGIC_VECTOR (1 DOWNTO 0),
-		byteena(1)	=> not uds,			--	: IN STD_LOGIC_VECTOR (1 DOWNTO 0),
-		clock   => sysclk,								--: IN STD_LOGIC ;
-		data	=> cpudata_in,		--	: IN STD_LOGIC_VECTOR (15 DOWNTO 0),
-		wren	=> RAM_write AND enaWRreg,		-- 	: IN STD_LOGIC ,
-		q		=> rom_data									--: OUT STD_LOGIC_VECTOR (15 DOWNTO 0)
-    );
+		addr => addr(12 downto 0),	--: IN STD_LOGIC_VECTOR (11 DOWNTO 0);
+		lds_n => lds,			--	: IN STD_LOGIC_VECTOR (1 DOWNTO 0),
+		uds_n	=> uds,			--	: IN STD_LOGIC_VECTOR (1 DOWNTO 0),
+		clk => sysclk,								--: IN STD_LOGIC ;
+		reset_n => n_reset,
+		d	=> cpudata_in,		--	: IN STD_LOGIC_VECTOR (15 DOWNTO 0),
+		we_n	=> not(RAM_write AND enaWRreg),		-- 	: IN STD_LOGIC ,
+		q	=> rom_data									--: OUT STD_LOGIC_VECTOR (15 DOWNTO 0)
+);
+
+--srom: startram
+--	PORT MAP 
+--	(
+--		address => addr(11 downto 1),	--: IN STD_LOGIC_VECTOR (11 DOWNTO 0);
+--		byteena(0)	=> not lds,			--	: IN STD_LOGIC_VECTOR (1 DOWNTO 0),
+--		byteena(1)	=> not uds,			--	: IN STD_LOGIC_VECTOR (1 DOWNTO 0),
+--		clock   => sysclk,								--: IN STD_LOGIC ;
+--		data	=> cpudata_in,		--	: IN STD_LOGIC_VECTOR (15 DOWNTO 0),
+--		wren	=> RAM_write AND enaWRreg,		-- 	: IN STD_LOGIC ,
+--		q		=> rom_data									--: OUT STD_LOGIC_VECTOR (15 DOWNTO 0)
+--    );
 
 
 -- Slow down accesses
@@ -219,7 +235,7 @@ sd_in(15 downto 8) <= sd_in_shift(15 downto 8) WHEN lds='0' ELSE sd_in_shift(7 d
 sd_in(7 downto 0) <= sd_in_shift(7 downto 0);
 
 RAM_write <= '1' when ROM_select='1' AND state="11" ELSE '0';
-ROM_select <= '1' when addr(23 downto 12)=X"000" ELSE '0';
+ROM_select <= '1' when addr(23 downto 13)=X"00"&"000" ELSE '0';
 rs232_select <= '1' when addr(23 downto 12)=X"DA8" ELSE '0';
 KEY_select <= '1' when addr(23 downto 12)=X"DE0" ELSE '0';
 PART_select <= '1' when addr(23 downto 12)=X"DEE" ELSE '0';
