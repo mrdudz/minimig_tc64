@@ -282,7 +282,7 @@ cfide	b2v_inst3(
 	.sd_dimm(spi_miso),
 	.enaWRreg(enaWRreg),
 	.TxD(txd),
-	.amiser_txd(amiser_txd),
+//	.amiser_txd(amiser_txd),
 	.reconfigure(reconfigure),
 	.freeze_n(freeze_n),
 	.menu_n(usart_cts & c64_keys[63]),
@@ -298,7 +298,7 @@ cfide	b2v_inst3(
 	.sd_do(sd_do),
 	.spi_raw_ack(spi_raw_ack),
 	.ena1MHz(ena1mhz),
-	.amiser_rxd(amiser_rxd),
+//	.amiser_rxd(amiser_rxd),
 	.turbochipram(turbochipram),
 	.scandoubler(scandoubler),
 	.cpudata(cfide_cpudata),
@@ -526,7 +526,9 @@ chameleon_io myio(
 	// Keyboards
 		.keys(c64_keys),	//-- how to map?  Array, readable in software?
 		.restore_key_n(c64_restore_key_n),
-		.c64_nmi_n(c64_nmi_n)
+		.c64_nmi_n(c64_nmi_n),
+		.midi_txd(amiser_txd),
+		.midi_rxd(amiser_rxd)
 	// 
 	);
 

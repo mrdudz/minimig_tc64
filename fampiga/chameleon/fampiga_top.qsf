@@ -185,54 +185,8 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_IN_ENABLE
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ADVANCED_TRIGGER_ENTITY=basic,1," -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_LEVEL_PIPELINE=1" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ENABLE_ADVANCED_TRIGGER=0" -section_id auto_signaltap_0
-set_global_assignment -name VHDL_FILE ../chameleon_io/chameleon_phi_clock_e.vhd
-set_global_assignment -name VHDL_FILE ../chameleon_io/chameleon_phi_clock_a.vhd
-set_global_assignment -name VHDL_FILE ../chameleon_io/chameleon_docking_station.vhd
-set_global_assignment -name VHDL_FILE ../chameleon_io/chameleon_c64_joykeyb.vhd
-set_global_assignment -name VHDL_FILE ../chameleon_io/chameleon_io.vhd
-set_global_assignment -name SDC_FILE fampiga.sdc
-set_global_assignment -name QIP_FILE ../board/CacheBlockRAM.qip
-set_global_assignment -name QIP_FILE ../board/Cache_DataRAM.qip
-set_global_assignment -name VERILOG_FILE ../board/TwoWayCache.v
-set_global_assignment -name VHDL_FILE ../board/chameleon_reconfigure.vhd
-set_global_assignment -name VHDL_FILE ../board/chameleon_cdtv_remote.vhd
-set_global_assignment -name VHDL_FILE ../board/palclk.vhd
-set_global_assignment -name VHDL_FILE ../board/cfide.vhd
-set_global_assignment -name SOURCE_FILE ../board/JBboot.cmp
-set_global_assignment -name AHDL_FILE ../board/JBboot.tdf
-set_global_assignment -name VHDL_FILE ../board/sdram.vhd
-set_global_assignment -name VHDL_FILE ../board/startram.vhd
-set_global_assignment -name VHDL_FILE ../board/TG68K.vhd
-set_global_assignment -name VHDL_FILE ../board/TG68K_ALU.vhd
-set_global_assignment -name VHDL_FILE ../board/TG68K_Pack.vhd
-set_global_assignment -name VHDL_FILE ../board/TG68KdotC_Kernel.vhd
-set_global_assignment -name VERILOG_FILE ../minimig/Userio.v
-set_global_assignment -name VERILOG_FILE ../minimig/ActionReplay3.v
-set_global_assignment -name VERILOG_FILE ../minimig/Agnus.v
-set_global_assignment -name VERILOG_FILE ../minimig/Amber.v
-set_global_assignment -name VERILOG_FILE ../minimig/Audio.v
-set_global_assignment -name VERILOG_FILE ../minimig/Beamcounter.v
-set_global_assignment -name VERILOG_FILE ../minimig/Bitplanes.v
-set_global_assignment -name VERILOG_FILE ../minimig/Blitter.v
-set_global_assignment -name VERILOG_FILE ../minimig/BootRom.v
-set_global_assignment -name VERILOG_FILE ../minimig/CIA8520.v
-set_global_assignment -name VERILOG_FILE ../minimig/Clock.v
-set_global_assignment -name VERILOG_FILE ../minimig/Copper.v
-set_global_assignment -name VERILOG_FILE ../minimig/Denise.v
-set_global_assignment -name VERILOG_FILE ../minimig/Floppy.v
-set_global_assignment -name VERILOG_FILE ../minimig/Gary.v
-set_global_assignment -name VERILOG_FILE ../minimig/Gayle.v
-set_global_assignment -name VERILOG_FILE ../minimig/Minimig1.v
-set_global_assignment -name VERILOG_FILE ../minimig/Paula.v
-set_global_assignment -name VERILOG_FILE ../minimig/PS2Keyboard.v
-set_global_assignment -name VERILOG_FILE ../minimig/Sprites.v
-set_global_assignment -name CDF_FILE Chain1.cdf
-set_global_assignment -name QIP_FILE ../board/palclk.qip
-set_global_assignment -name SIGNALTAP_FILE stp1.stp
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SEGMENT_SIZE=512" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SAMPLE_DEPTH=512" -section_id auto_signaltap_0
-set_global_assignment -name VHDL_FILE ../chameleon_io/gen_reset.vhd
-set_global_assignment -name VERILOG_FILE ../board/fampiga_top.v
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_clk -to "cfide:b2v_inst3|sysclk" -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[0] -to "cfide:b2v_inst3|menu_n" -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[1] -to "cfide:b2v_inst3|n_reset" -section_id auto_signaltap_0
@@ -292,5 +246,52 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK=00
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LENGTH=101" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_LOWORD=21056" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_HIWORD=29733" -section_id auto_signaltap_0
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name VHDL_FILE ../board/gen_reset.vhd
+set_global_assignment -name VHDL_FILE ../board/chameleon_phi_clock_e.vhd
+set_global_assignment -name VHDL_FILE ../board/chameleon_phi_clock_a.vhd
+set_global_assignment -name VHDL_FILE ../board/chameleon_io.vhd
+set_global_assignment -name VHDL_FILE ../board/chameleon_docking_station.vhd
+set_global_assignment -name VHDL_FILE ../board/chameleon_c64_joykeyb.vhd
+set_global_assignment -name SDC_FILE fampiga.sdc
+set_global_assignment -name QIP_FILE ../board/CacheBlockRAM.qip
+set_global_assignment -name QIP_FILE ../board/Cache_DataRAM.qip
+set_global_assignment -name VERILOG_FILE ../board/TwoWayCache.v
+set_global_assignment -name VHDL_FILE ../board/chameleon_reconfigure.vhd
+set_global_assignment -name VHDL_FILE ../board/chameleon_cdtv_remote.vhd
+set_global_assignment -name VHDL_FILE ../board/palclk.vhd
+set_global_assignment -name VHDL_FILE ../board/cfide.vhd
+set_global_assignment -name SOURCE_FILE ../board/JBboot.cmp
+set_global_assignment -name AHDL_FILE ../board/JBboot.tdf
+set_global_assignment -name VHDL_FILE ../board/sdram.vhd
+set_global_assignment -name VHDL_FILE ../board/startram.vhd
+set_global_assignment -name VHDL_FILE ../board/TG68K.vhd
+set_global_assignment -name VHDL_FILE ../board/TG68K_ALU.vhd
+set_global_assignment -name VHDL_FILE ../board/TG68K_Pack.vhd
+set_global_assignment -name VHDL_FILE ../board/TG68KdotC_Kernel.vhd
+set_global_assignment -name VERILOG_FILE ../minimig/Userio.v
+set_global_assignment -name VERILOG_FILE ../minimig/ActionReplay3.v
+set_global_assignment -name VERILOG_FILE ../minimig/Agnus.v
+set_global_assignment -name VERILOG_FILE ../minimig/Amber.v
+set_global_assignment -name VERILOG_FILE ../minimig/Audio.v
+set_global_assignment -name VERILOG_FILE ../minimig/Beamcounter.v
+set_global_assignment -name VERILOG_FILE ../minimig/Bitplanes.v
+set_global_assignment -name VERILOG_FILE ../minimig/Blitter.v
+set_global_assignment -name VERILOG_FILE ../minimig/BootRom.v
+set_global_assignment -name VERILOG_FILE ../minimig/CIA8520.v
+set_global_assignment -name VERILOG_FILE ../minimig/Clock.v
+set_global_assignment -name VERILOG_FILE ../minimig/Copper.v
+set_global_assignment -name VERILOG_FILE ../minimig/Denise.v
+set_global_assignment -name VERILOG_FILE ../minimig/Floppy.v
+set_global_assignment -name VERILOG_FILE ../minimig/Gary.v
+set_global_assignment -name VERILOG_FILE ../minimig/Gayle.v
+set_global_assignment -name VERILOG_FILE ../minimig/Minimig1.v
+set_global_assignment -name VERILOG_FILE ../minimig/Paula.v
+set_global_assignment -name VERILOG_FILE ../minimig/PS2Keyboard.v
+set_global_assignment -name VERILOG_FILE ../minimig/Sprites.v
+set_global_assignment -name CDF_FILE Chain1.cdf
+set_global_assignment -name QIP_FILE ../board/palclk.qip
+set_global_assignment -name SIGNALTAP_FILE stp1.stp
+set_global_assignment -name VERILOG_FILE ../board/fampiga_top.v
+set_global_assignment -name VHDL_FILE ../../Minimig_Firmware/OSDBoot_ZPU/OSDBoot_68k_ROM.vhd
 set_global_assignment -name SLD_FILE /home/amr/FPGA/Projects/minimig_tc64/fampiga/chameleon/stp1_auto_stripped.stp
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
