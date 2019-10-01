@@ -24,8 +24,17 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
- 
+
 entity cfide is
+	generic (
+		clkgen_in : integer := 245
+--			clkgen <= "1110101001";--937;		--108MHz/115200
+--			clkgen <= "0011101010";--234;		--27MHz/115200
+--			clkgen <= "0011111000";--249-1;		--28,7MHz/115200
+--			clkgen <= "0011110101";--246-1;		--28,7MHz/115200
+--			clkgen <= "0001111100";--249-1;		--14,3MHz/115200
+--			clkgen <= "1110010101";--918-1;     --28.7Mhz/31250 - debug over MIDI
+	);
    port ( 
 	sysclk: in std_logic;	
 	n_reset: in std_logic;	
@@ -472,11 +481,13 @@ begin
 		if clkgen/=0 then
 			clkgen <= clkgen-1;
 		else	
+			clkgen <= to_unsigned(clkgen_in,10);
 --			clkgen <= "1110101001";--937;		--108MHz/115200
 --			clkgen <= "0011101010";--234;		--27MHz/115200
-			clkgen <= "0011111000";--249-1;		--28,7MHz/115200
+--			clkgen <= "0011111000";--249-1;		--28,7MHz/115200
 --			clkgen <= "0011110101";--246-1;		--28,7MHz/115200
 --			clkgen <= "0001111100";--249-1;		--14,3MHz/115200
+--			clkgen <= "1110010101";--918-1;     --28.7Mhz/31250 - debug over MIDI
 			shiftout <= not shift(0) and txbusy;
 		   	shift <=  '0' & shift(9 downto 1);
 		end if;

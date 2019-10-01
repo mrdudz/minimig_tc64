@@ -240,7 +240,7 @@ cpuAddr_mangled<=cpuAddr;
 		end if;	
 		zcachehit <= '0';
 		if zequal='1' and zvalid(0)='1' and hostStated(1)='0' THEN
-			case (hostAddr(2 downto 1)&zcache_addr(2 downto 1)) is
+			case (zmAddr(2 downto 1)&zcache_addr(2 downto 1)) is
 				when "0000"|"0101"|"1010"|"1111"=>
 					zcachehit <= zvalid(0);
 					hostRD <= zcache(63 downto 48);

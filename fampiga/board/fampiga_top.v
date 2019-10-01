@@ -275,7 +275,11 @@ assign	nVSync =  ~vsync;
 assign	nHSync =  ~hsync;
 assign	SYNTHESIZED_WIRE_4 = ~(maincpu_reset & SYNTHESIZED_WIRE_12);
 
-cfide	b2v_inst3(
+cfide
+	#(
+		.clkgen_in(917)
+	)
+	b2v_inst3(
 	.sysclk(sysclk),
 	.n_reset(sdreset),
 	.cpuena_in(zena),
@@ -531,7 +535,7 @@ chameleon_io myio(
 		.keys(c64_keys),	//-- how to map?  Array, readable in software?
 		.restore_key_n(c64_restore_key_n),
 		.c64_nmi_n(c64_nmi_n),
-		.midi_txd(amiser_txd),
+		.midi_txd(amiser_txd), // & txd),
 		.midi_rxd(amiser_rxd)
 	// 
 	);

@@ -1,229 +1,129 @@
-<session jtag_chain="USB-Blaster [2-1.3]" jtag_device="@2: EP3C25/EP4CE22 (0x020F30DD)" sof_file="fampiga_top.sof">
+<session jtag_chain="USB-Blaster [2-1.4]" jtag_device="@2: EP3C25/EP4CE22 (0x020F30DD)" sof_file="fampiga_top.sof">
   <display_tree gui_logging_enabled="0">
-    <display_branch instance="auto_signaltap_0" log="USE_GLOBAL_TEMP" signal_set="USE_GLOBAL_TEMP" trigger="USE_GLOBAL_TEMP"/>
+    <display_branch instance="auto_signaltap_0" signal_set="USE_GLOBAL_TEMP" trigger="USE_GLOBAL_TEMP"/>
   </display_tree>
-  <instance entity_name="sld_signaltap" is_auto_node="yes" is_expanded="true" name="auto_signaltap_0" source_file="sld_signaltap.vhd">
+  <global_info>
+    <single attribute="active instance" value="0"/>
+    <multi attribute="frame size" size="2" value="1268,957"/>
+    <single attribute="jtag widget visible" value="1"/>
+    <multi attribute="jtag widget size" size="2" value="390,133"/>
+    <single attribute="instance widget visible" value="1"/>
+    <single attribute="config widget visible" value="1"/>
+    <single attribute="hierarchy widget visible" value="1"/>
+    <single attribute="data log widget visible" value="1"/>
+  </global_info>
+  <instance entity_name="sld_signaltap" is_auto_node="yes" name="auto_signaltap_0" source_file="sld_signaltap.vhd">
     <node_ip_info instance_id="0" mfg_id="110" node_id="0" version="6"/>
     <position_info>
-      <single attribute="active tab" value="0"/>
-      <single attribute="data horizontal scroll position" value="394"/>
-      <single attribute="data vertical scroll position" value="8"/>
-      <single attribute="setup horizontal scroll position" value="0"/>
-      <single attribute="setup vertical scroll position" value="18"/>
-      <single attribute="zoom level denominator" value="1"/>
-      <single attribute="zoom level numerator" value="64"/>
-      <single attribute="zoom offset denominator" value="1"/>
-      <single attribute="zoom offset numerator" value="2032"/>
+      <single attribute="active tab" value="1"/>
     </position_info>
-    <signal_set global_temp="1" name="signal_set: 2019/02/23 17:59:48  #0">
+    <signal_set global_temp="1" name="signal_set: 2019/09/29 21:41:30  #0">
       <clock name="cfide:b2v_inst3|sysclk" polarity="posedge" tap_mode="classic"/>
-      <config ram_type="M4K" reserved_data_nodes="0" reserved_storage_qualifier_nodes="0" reserved_trigger_nodes="0" sample_depth="512" trigger_in_enable="no" trigger_out_enable="no"/>
+      <config ram_type="M4K" reserved_data_nodes="0" reserved_storage_qualifier_nodes="0" reserved_trigger_nodes="0" sample_depth="256" trigger_in_enable="no" trigger_out_enable="no"/>
       <top_entity/>
       <signal_vec>
         <trigger_input_vec>
-          <wire name="cfide:b2v_inst3|menu_n" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|n_reset" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|sd_cs[0]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|sd_cs[1]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|sd_cs[2]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|sd_cs[3]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|sd_cs[4]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|sd_cs[5]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|sd_cs[6]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|sd_cs[7]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|state[0]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|state[1]" tap_mode="classic"/>
-          <wire name="freeze_n" tap_mode="classic"/>
-          <wire name="mux[0]" tap_mode="classic"/>
-          <wire name="mux[1]" tap_mode="classic"/>
-          <wire name="mux[2]" tap_mode="classic"/>
-          <wire name="mux[3]" tap_mode="classic"/>
-          <wire name="mux_d[0]" tap_mode="classic"/>
-          <wire name="mux_d[1]" tap_mode="classic"/>
-          <wire name="mux_d[2]" tap_mode="classic"/>
-          <wire name="mux_d[3]" tap_mode="classic"/>
-          <wire name="mux_q[0]" tap_mode="classic"/>
-          <wire name="mux_q[1]" tap_mode="classic"/>
-          <wire name="mux_q[2]" tap_mode="classic"/>
-          <wire name="mux_q[3]" tap_mode="classic"/>
-          <wire name="spi_miso" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|TxD" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[0]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[1]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[2]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[3]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[4]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[5]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[6]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[7]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[8]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[9]" tap_mode="classic"/>
+          <wire name="chameleon_io:myio|midi_rxd" tap_mode="classic"/>
+          <wire name="chameleon_io:myio|midi_txd" tap_mode="classic"/>
         </trigger_input_vec>
         <data_input_vec>
-          <wire name="cfide:b2v_inst3|menu_n" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|n_reset" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|sd_cs[0]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|sd_cs[1]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|sd_cs[2]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|sd_cs[3]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|sd_cs[4]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|sd_cs[5]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|sd_cs[6]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|sd_cs[7]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|state[0]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|state[1]" tap_mode="classic"/>
-          <wire name="freeze_n" tap_mode="classic"/>
-          <wire name="mux[0]" tap_mode="classic"/>
-          <wire name="mux[1]" tap_mode="classic"/>
-          <wire name="mux[2]" tap_mode="classic"/>
-          <wire name="mux[3]" tap_mode="classic"/>
-          <wire name="mux_d[0]" tap_mode="classic"/>
-          <wire name="mux_d[1]" tap_mode="classic"/>
-          <wire name="mux_d[2]" tap_mode="classic"/>
-          <wire name="mux_d[3]" tap_mode="classic"/>
-          <wire name="mux_q[0]" tap_mode="classic"/>
-          <wire name="mux_q[1]" tap_mode="classic"/>
-          <wire name="mux_q[2]" tap_mode="classic"/>
-          <wire name="mux_q[3]" tap_mode="classic"/>
-          <wire name="spi_miso" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|TxD" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[0]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[1]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[2]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[3]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[4]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[5]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[6]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[7]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[8]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[9]" tap_mode="classic"/>
+          <wire name="chameleon_io:myio|midi_rxd" tap_mode="classic"/>
+          <wire name="chameleon_io:myio|midi_txd" tap_mode="classic"/>
         </data_input_vec>
         <storage_qualifier_input_vec>
-          <wire name="cfide:b2v_inst3|menu_n" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|n_reset" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|sd_cs[0]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|sd_cs[1]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|sd_cs[2]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|sd_cs[3]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|sd_cs[4]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|sd_cs[5]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|sd_cs[6]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|sd_cs[7]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|state[0]" tap_mode="classic"/>
-          <wire name="cfide:b2v_inst3|state[1]" tap_mode="classic"/>
-          <wire name="freeze_n" tap_mode="classic"/>
-          <wire name="mux[0]" tap_mode="classic"/>
-          <wire name="mux[1]" tap_mode="classic"/>
-          <wire name="mux[2]" tap_mode="classic"/>
-          <wire name="mux[3]" tap_mode="classic"/>
-          <wire name="mux_d[0]" tap_mode="classic"/>
-          <wire name="mux_d[1]" tap_mode="classic"/>
-          <wire name="mux_d[2]" tap_mode="classic"/>
-          <wire name="mux_d[3]" tap_mode="classic"/>
-          <wire name="mux_q[0]" tap_mode="classic"/>
-          <wire name="mux_q[1]" tap_mode="classic"/>
-          <wire name="mux_q[2]" tap_mode="classic"/>
-          <wire name="mux_q[3]" tap_mode="classic"/>
-          <wire name="spi_miso" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|TxD" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[0]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[1]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[2]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[3]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[4]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[5]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[6]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[7]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[8]" tap_mode="classic"/>
+          <wire name="cfide:b2v_inst3|clkgen[9]" tap_mode="classic"/>
+          <wire name="chameleon_io:myio|midi_rxd" tap_mode="classic"/>
+          <wire name="chameleon_io:myio|midi_txd" tap_mode="classic"/>
         </storage_qualifier_input_vec>
       </signal_vec>
       <presentation>
         <unified_setup_data_view>
-          <node data_index="25" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="spi_miso" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="25" tap_mode="classic" trigger_index="25" type="input pin"/>
-          <node name="cfide:b2v_inst3|sd_cs" order="msb_to_lsb" state="expand" type="combinatorial">
-            <node data_index="9" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|sd_cs[7]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="9" tap_mode="classic" trigger_index="9" type="combinatorial"/>
-            <node data_index="8" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|sd_cs[6]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="8" tap_mode="classic" trigger_index="8" type="combinatorial"/>
-            <node data_index="7" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|sd_cs[5]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="7" tap_mode="classic" trigger_index="7" type="combinatorial"/>
-            <node data_index="6" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|sd_cs[4]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="6" tap_mode="classic" trigger_index="6" type="combinatorial"/>
-            <node data_index="5" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|sd_cs[3]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="5" tap_mode="classic" trigger_index="5" type="combinatorial"/>
-            <node data_index="4" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|sd_cs[2]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="4" tap_mode="classic" trigger_index="4" type="combinatorial"/>
-            <node data_index="3" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|sd_cs[1]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="3" tap_mode="classic" trigger_index="3" type="combinatorial"/>
-            <node data_index="2" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|sd_cs[0]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="2" tap_mode="classic" trigger_index="2" type="combinatorial"/>
+          <node name="cfide:b2v_inst3|clkgen" order="msb_to_lsb" type="register">
+            <node is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[9]" tap_mode="classic" type="register"/>
+            <node is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[8]" tap_mode="classic" type="register"/>
+            <node is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[7]" tap_mode="classic" type="register"/>
+            <node is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[6]" tap_mode="classic" type="register"/>
+            <node is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[5]" tap_mode="classic" type="register"/>
+            <node is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[4]" tap_mode="classic" type="register"/>
+            <node is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[3]" tap_mode="classic" type="register"/>
+            <node is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[2]" tap_mode="classic" type="register"/>
+            <node is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[1]" tap_mode="classic" type="register"/>
+            <node is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[0]" tap_mode="classic" type="register"/>
           </node>
-          <node data_index="1" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|n_reset" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="1" tap_mode="classic" trigger_index="1" type="combinatorial"/>
-          <node name="cfide:b2v_inst3|state" order="msb_to_lsb" type="combinatorial">
-            <node data_index="11" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|state[1]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="11" tap_mode="classic" trigger_index="11" type="combinatorial"/>
-            <node data_index="10" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|state[0]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="10" tap_mode="classic" trigger_index="10" type="combinatorial"/>
-          </node>
-          <node name="mux" order="msb_to_lsb" type="output pin">
-            <node data_index="16" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux[3]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="16" tap_mode="classic" trigger_index="16" type="output pin"/>
-            <node data_index="15" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux[2]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="15" tap_mode="classic" trigger_index="15" type="output pin"/>
-            <node data_index="14" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux[1]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="14" tap_mode="classic" trigger_index="14" type="output pin"/>
-            <node data_index="13" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux[0]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="13" tap_mode="classic" trigger_index="13" type="output pin"/>
-          </node>
-          <node name="mux_d" order="msb_to_lsb" state="expand" type="output pin">
-            <node data_index="20" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux_d[3]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="20" tap_mode="classic" trigger_index="20" type="output pin"/>
-            <node data_index="19" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux_d[2]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="19" tap_mode="classic" trigger_index="19" type="output pin"/>
-            <node data_index="18" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux_d[1]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="18" tap_mode="classic" trigger_index="18" type="output pin"/>
-            <node data_index="17" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux_d[0]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="17" tap_mode="classic" trigger_index="17" type="output pin"/>
-          </node>
-          <node name="mux_q" order="msb_to_lsb" type="input pin">
-            <node data_index="24" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux_q[3]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="24" tap_mode="classic" trigger_index="24" type="input pin"/>
-            <node data_index="23" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux_q[2]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="23" tap_mode="classic" trigger_index="23" type="input pin"/>
-            <node data_index="22" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux_q[1]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="22" tap_mode="classic" trigger_index="22" type="input pin"/>
-            <node data_index="21" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux_q[0]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="21" tap_mode="classic" trigger_index="21" type="input pin"/>
-          </node>
-          <node data_index="12" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="freeze_n" storage_index="12" tap_mode="classic" trigger_index="12" type="input pin"/>
-          <node data_index="0" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|menu_n" storage_index="0" tap_mode="classic" trigger_index="0" type="combinatorial"/>
+          <node is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|TxD" tap_mode="classic" type="combinatorial"/>
+          <node is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="chameleon_io:myio|midi_txd" tap_mode="classic" type="combinatorial"/>
+          <node is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="chameleon_io:myio|midi_rxd" tap_mode="classic" type="combinatorial"/>
         </unified_setup_data_view>
         <data_view>
-          <net data_index="25" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="spi_miso" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="25" tap_mode="classic" trigger_index="25" type="input pin"/>
-          <bus name="cfide:b2v_inst3|sd_cs" order="msb_to_lsb" state="expand" type="combinatorial">
-            <net data_index="9" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|sd_cs[7]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="9" tap_mode="classic" trigger_index="9" type="combinatorial"/>
-            <net data_index="8" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|sd_cs[6]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="8" tap_mode="classic" trigger_index="8" type="combinatorial"/>
-            <net data_index="7" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|sd_cs[5]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="7" tap_mode="classic" trigger_index="7" type="combinatorial"/>
-            <net data_index="6" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|sd_cs[4]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="6" tap_mode="classic" trigger_index="6" type="combinatorial"/>
-            <net data_index="5" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|sd_cs[3]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="5" tap_mode="classic" trigger_index="5" type="combinatorial"/>
-            <net data_index="4" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|sd_cs[2]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="4" tap_mode="classic" trigger_index="4" type="combinatorial"/>
-            <net data_index="3" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|sd_cs[1]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="3" tap_mode="classic" trigger_index="3" type="combinatorial"/>
-            <net data_index="2" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|sd_cs[0]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="2" tap_mode="classic" trigger_index="2" type="combinatorial"/>
+          <bus name="cfide:b2v_inst3|clkgen" order="msb_to_lsb" type="register">
+            <net data_index="10" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[9]" storage_index="10" tap_mode="classic" trigger_index="10" type="register"/>
+            <net data_index="9" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[8]" storage_index="9" tap_mode="classic" trigger_index="9" type="register"/>
+            <net data_index="8" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[7]" storage_index="8" tap_mode="classic" trigger_index="8" type="register"/>
+            <net data_index="7" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[6]" storage_index="7" tap_mode="classic" trigger_index="7" type="register"/>
+            <net data_index="6" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[5]" storage_index="6" tap_mode="classic" trigger_index="6" type="register"/>
+            <net data_index="5" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[4]" storage_index="5" tap_mode="classic" trigger_index="5" type="register"/>
+            <net data_index="4" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[3]" storage_index="4" tap_mode="classic" trigger_index="4" type="register"/>
+            <net data_index="3" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[2]" storage_index="3" tap_mode="classic" trigger_index="3" type="register"/>
+            <net data_index="2" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[1]" storage_index="2" tap_mode="classic" trigger_index="2" type="register"/>
+            <net data_index="1" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[0]" storage_index="1" tap_mode="classic" trigger_index="1" type="register"/>
           </bus>
-          <net data_index="1" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|n_reset" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="1" tap_mode="classic" trigger_index="1" type="combinatorial"/>
-          <bus name="cfide:b2v_inst3|state" order="msb_to_lsb" type="combinatorial">
-            <net data_index="11" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|state[1]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="11" tap_mode="classic" trigger_index="11" type="combinatorial"/>
-            <net data_index="10" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|state[0]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="10" tap_mode="classic" trigger_index="10" type="combinatorial"/>
-          </bus>
-          <bus name="mux" order="msb_to_lsb" type="output pin">
-            <net data_index="16" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux[3]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="16" tap_mode="classic" trigger_index="16" type="output pin"/>
-            <net data_index="15" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux[2]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="15" tap_mode="classic" trigger_index="15" type="output pin"/>
-            <net data_index="14" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux[1]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="14" tap_mode="classic" trigger_index="14" type="output pin"/>
-            <net data_index="13" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux[0]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="13" tap_mode="classic" trigger_index="13" type="output pin"/>
-          </bus>
-          <bus name="mux_d" order="msb_to_lsb" state="expand" type="output pin">
-            <net data_index="20" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux_d[3]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="20" tap_mode="classic" trigger_index="20" type="output pin"/>
-            <net data_index="19" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux_d[2]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="19" tap_mode="classic" trigger_index="19" type="output pin"/>
-            <net data_index="18" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux_d[1]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="18" tap_mode="classic" trigger_index="18" type="output pin"/>
-            <net data_index="17" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux_d[0]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="17" tap_mode="classic" trigger_index="17" type="output pin"/>
-          </bus>
-          <bus name="mux_q" order="msb_to_lsb" type="input pin">
-            <net data_index="24" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux_q[3]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="24" tap_mode="classic" trigger_index="24" type="input pin"/>
-            <net data_index="23" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux_q[2]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="23" tap_mode="classic" trigger_index="23" type="input pin"/>
-            <net data_index="22" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux_q[1]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="22" tap_mode="classic" trigger_index="22" type="input pin"/>
-            <net data_index="21" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux_q[0]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="21" tap_mode="classic" trigger_index="21" type="input pin"/>
-          </bus>
-          <net data_index="12" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="freeze_n" storage_index="12" tap_mode="classic" trigger_index="12" type="input pin"/>
-          <net data_index="0" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|menu_n" storage_index="0" tap_mode="classic" trigger_index="0" type="combinatorial"/>
+          <net data_index="0" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|TxD" storage_index="0" tap_mode="classic" trigger_index="0" type="combinatorial"/>
+          <net data_index="12" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="chameleon_io:myio|midi_txd" storage_index="12" tap_mode="classic" trigger_index="12" type="combinatorial"/>
+          <net data_index="11" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="chameleon_io:myio|midi_rxd" storage_index="11" tap_mode="classic" trigger_index="11" type="combinatorial"/>
         </data_view>
         <setup_view>
-          <net data_index="25" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="spi_miso" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="25" tap_mode="classic" trigger_index="25" type="input pin"/>
-          <bus name="cfide:b2v_inst3|sd_cs" order="msb_to_lsb" state="expand" type="combinatorial">
-            <net data_index="9" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|sd_cs[7]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="9" tap_mode="classic" trigger_index="9" type="combinatorial"/>
-            <net data_index="8" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|sd_cs[6]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="8" tap_mode="classic" trigger_index="8" type="combinatorial"/>
-            <net data_index="7" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|sd_cs[5]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="7" tap_mode="classic" trigger_index="7" type="combinatorial"/>
-            <net data_index="6" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|sd_cs[4]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="6" tap_mode="classic" trigger_index="6" type="combinatorial"/>
-            <net data_index="5" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|sd_cs[3]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="5" tap_mode="classic" trigger_index="5" type="combinatorial"/>
-            <net data_index="4" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|sd_cs[2]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="4" tap_mode="classic" trigger_index="4" type="combinatorial"/>
-            <net data_index="3" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|sd_cs[1]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="3" tap_mode="classic" trigger_index="3" type="combinatorial"/>
-            <net data_index="2" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|sd_cs[0]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="2" tap_mode="classic" trigger_index="2" type="combinatorial"/>
+          <bus name="cfide:b2v_inst3|clkgen" order="msb_to_lsb" type="register">
+            <net data_index="10" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[9]" storage_index="10" tap_mode="classic" trigger_index="10" type="register"/>
+            <net data_index="9" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[8]" storage_index="9" tap_mode="classic" trigger_index="9" type="register"/>
+            <net data_index="8" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[7]" storage_index="8" tap_mode="classic" trigger_index="8" type="register"/>
+            <net data_index="7" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[6]" storage_index="7" tap_mode="classic" trigger_index="7" type="register"/>
+            <net data_index="6" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[5]" storage_index="6" tap_mode="classic" trigger_index="6" type="register"/>
+            <net data_index="5" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[4]" storage_index="5" tap_mode="classic" trigger_index="5" type="register"/>
+            <net data_index="4" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[3]" storage_index="4" tap_mode="classic" trigger_index="4" type="register"/>
+            <net data_index="3" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[2]" storage_index="3" tap_mode="classic" trigger_index="3" type="register"/>
+            <net data_index="2" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[1]" storage_index="2" tap_mode="classic" trigger_index="2" type="register"/>
+            <net data_index="1" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|clkgen[0]" storage_index="1" tap_mode="classic" trigger_index="1" type="register"/>
           </bus>
-          <net data_index="1" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|n_reset" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="1" tap_mode="classic" trigger_index="1" type="combinatorial"/>
-          <bus name="cfide:b2v_inst3|state" order="msb_to_lsb" type="combinatorial">
-            <net data_index="11" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|state[1]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="11" tap_mode="classic" trigger_index="11" type="combinatorial"/>
-            <net data_index="10" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="cfide:b2v_inst3|state[0]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="10" tap_mode="classic" trigger_index="10" type="combinatorial"/>
-          </bus>
-          <bus name="mux" order="msb_to_lsb" type="output pin">
-            <net data_index="16" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux[3]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="16" tap_mode="classic" trigger_index="16" type="output pin"/>
-            <net data_index="15" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux[2]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="15" tap_mode="classic" trigger_index="15" type="output pin"/>
-            <net data_index="14" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux[1]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="14" tap_mode="classic" trigger_index="14" type="output pin"/>
-            <net data_index="13" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux[0]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="13" tap_mode="classic" trigger_index="13" type="output pin"/>
-          </bus>
-          <bus name="mux_d" order="msb_to_lsb" state="expand" type="output pin">
-            <net data_index="20" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux_d[3]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="20" tap_mode="classic" trigger_index="20" type="output pin"/>
-            <net data_index="19" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux_d[2]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="19" tap_mode="classic" trigger_index="19" type="output pin"/>
-            <net data_index="18" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux_d[1]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="18" tap_mode="classic" trigger_index="18" type="output pin"/>
-            <net data_index="17" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux_d[0]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="17" tap_mode="classic" trigger_index="17" type="output pin"/>
-          </bus>
-          <bus name="mux_q" order="msb_to_lsb" type="input pin">
-            <net data_index="24" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux_q[3]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="24" tap_mode="classic" trigger_index="24" type="input pin"/>
-            <net data_index="23" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux_q[2]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="23" tap_mode="classic" trigger_index="23" type="input pin"/>
-            <net data_index="22" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux_q[1]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="22" tap_mode="classic" trigger_index="22" type="input pin"/>
-            <net data_index="21" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="dont_care" name="mux_q[0]" pwr_level-0="dont_care" pwr_storage-0="dont_care" pwr_storage-1="dont_care" pwr_storage-2="dont_care" storage-0="dont_care" storage-1="dont_care" storage-2="dont_care" storage_index="21" tap_mode="classic" trigger_index="21" type="input pin"/>
-          </bus>
-          <net data_index="12" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="freeze_n" storage_index="12" tap_mode="classic" trigger_index="12" type="input pin"/>
-          <net data_index="0" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|menu_n" storage_index="0" tap_mode="classic" trigger_index="0" type="combinatorial"/>
+          <net data_index="0" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="cfide:b2v_inst3|TxD" storage_index="0" tap_mode="classic" trigger_index="0" type="combinatorial"/>
+          <net data_index="12" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="chameleon_io:myio|midi_txd" storage_index="12" tap_mode="classic" trigger_index="12" type="combinatorial"/>
+          <net data_index="11" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="chameleon_io:myio|midi_rxd" storage_index="11" tap_mode="classic" trigger_index="11" type="combinatorial"/>
         </setup_view>
         <trigger_in_editor/>
         <trigger_out_editor/>
       </presentation>
-      <trigger CRC="74255240" attribute_mem_mode="false" gap_record="true" global_temp="1" name="trigger: 2019/02/23 17:59:48  #1" position="post" power_up_trigger_mode="false" record_data_gap="true" segment_size="512" storage_mode="off" storage_qualifier_disabled="no" storage_qualifier_port_is_pin="false" storage_qualifier_port_name="auto_stp_external_storage_qualifier" storage_qualifier_port_tap_mode="classic" trigger_type="circular">
+      <trigger attribute_mem_mode="false" gap_record="true" global_temp="1" name="trigger: 2019/09/29 21:41:30  #1" position="pre" power_up_trigger_mode="false" record_data_gap="true" segment_size="64" storage_mode="off" storage_qualifier_disabled="no" storage_qualifier_port_is_pin="true" storage_qualifier_port_name="auto_stp_external_storage_qualifier" storage_qualifier_port_tap_mode="classic" trigger_type="circular">
         <power_up_trigger position="pre" storage_qualifier_disabled="no"/>
         <events use_custom_flow_control="no">
           <level enabled="yes" name="condition1" type="basic">
@@ -233,8 +133,8 @@
           </level>
         </events>
         <storage_qualifier_events>
-          <transitional>11111111111111111111111111
-            <pwr_up_transitional>11111111111111111111111111</pwr_up_transitional>
+          <transitional>1111111111111
+            <pwr_up_transitional>1111111111111</pwr_up_transitional>
           </transitional>
           <storage_qualifier_level type="basic">
             <power_up>
@@ -252,24 +152,8 @@
             <op_node/>
           </storage_qualifier_level>
         </storage_qualifier_events>
-        <log>
-          <data global_temp="1" name="log: 2019/02/23 18:09:03  #0" power_up_mode="false" sample_depth="512" trigger_position="448">1111111111001101000111111111111111110011010001100111111111111100100011101001111111111111001000111011111111111111110010011101111111111111111100100111011111111111111111001111010101111111111111110011110101011111111111111100110111111111111111111111001101111111111111111111110010011101111111111111111100100111011111111111111111001011111111111111111111110010111111111111111111111100100100011111111111111111001001000111111111111111110010011101111111111111111100100111011111111111111111001011010111111111111111110010110101111111111111111100111010001111111111111111001110100010111111111111110010011101101111111111111100100111011111111111111111101010000001111111111111111010100000011111111111111110110111111111111111111111101101111111111111111111111110011101111111111111111111100111011111111111111111111110000001111111111111111111100000011111111111111111100001111111111111111111111000011111111111111111111111000011111111111111111111110000111011111111111111001001110110111111111111110010011101111111111111111100110111111111111111111111001101111111111111111111110010011101111111111111111100100111011111111111111111001111011101111111111111110011110111011111111111111100111101010111111111111111001111010101111111111111110010011101111111111111111100100111011111111111111111001111010101111111111111110011110101011111111111111100100111011111111111111111001001110111111111111111110011110101011111111111111100111101010111111111111111001001110111111111111111110010011101111111111111111100100111011111111111111111001001110111111111111111110010011101111111111111111100100111011111111111111111001000011111111111111111110010000111111111111111111100110000111111111111111111001100001110111111111111110010011101101111111111111100100111011111111111111111001001110111111111111111110010011101111111111111111100100011101111111111111111001000111011111111111111110010011101111111111111111100100111011111111111111111001011010111111111111111110010110101111111111111111100100111011111111111111111001001110111111111111111110010000111111111111111111100100001111111111111111111001100001111111111111111110011000011101111111111111100100111011011111111111111001001110111111111111111110011011111111111111111111100110111111111111111111111001001110111111111111111110010011101111111111111111100100001111111111111111111001000011111111111111111110111000011111111111111111101110000111011111111111111011001110110111111111111110110011101111111111111111100100001111111111111111111001000011111111111111111110011000011111111111111111100110000111011111111111111001001110110111111111111110010011101111111111111111100100001111111111111111111001000011111111111111111110111000011111111111111111101110000111011111111111111011001110110111111111111110110011101111111111111111110100111011111111111111111101001110111111111111111111010011101111111111111111110100111011111111111111111101001110111111111111111111010011101111111111111111110100111011111111111111111101001110111111111111111111010011101111111111111111110100111011111111111111111101001110111111111111111111010011101111111111111111110110100011111111111111111101101000110011111111111111010001110100111111111111110100011101111111111111111101001110111111111111111111010011101111111111111111110111101010111111111111111101111010101111111111111111011011111111111111111111110110111111111111111111111101001110111111111111111111010011101111111111111111110101111111111111111111111101011111111111111111111111010010001111111111111111110100100011111111111111111101001110111111111111111111010011101111111111111111110101101011111111111111111101011010111111111111111111011101000111111111111111110111010001011111111111111101001110110111111111111111010011101111111111111111110101001000111111111111111101010010001111111111111111011011111111111111111111110110111111111111111111111101001110111111111111111111010011101111111111111111110111000000111111111111111101110000001111111111111111010000000011111111111111110100000000111111111111111101100000000000111111111111011000000001111111111111110100111011000011111111111101001110111111111111111111011011111111111111111111110110111111111111111111111101001110111111111111111111010011101111111111111111110111101110111111111111111101111011101111111111111111011110101011111111111111110111101010111111111111111101001110111111111111111111010011101111111111111111110111101010111111111111111101111010101111111111111111010011101111111111111111110100111011111111111111111001111010101111111111111110011110101011111111111111100100111011111111111111111001001110111111111111111110010011101111111111111111100100111011111111111111111001001110111111111111111110010011101111111111111111100100000000111111111111111001000000000000111111111110011000000000001111111111100110000000000011111111111001001110110000111111111110010011101111111111111111100100111011111111111111111001001110111111111111111110010001110111111111111111100100011101111111111111111001001110111111111111111110010011101111111111111111100101101011111111111111111001011010111111111111111110010011101111111111111111100100111011111111111111111001000000001111111111111110010000000000001111111111100110000000000011111111111001100000000000111111111110010011101100001111111111100100111011111111111111111001101111111111111111111110011011111111111111111111100100111011111111111111111001001110111111111111111110010000000011111111111111100100000000000011111111111001100000000000111111111110011000000000001111111111100100111011000011111111111001001110111111111111111110010000000011111111111111100100000000000011111111111001100000000000111111111110011000000000001111111111100100111011000011111111111001001110111111111111111110010000000011111111111111100100000000000011111111111011100000000000111111111110111000000000001111111111101100111011000011111111111011001110111111111111111110010011101111111111111111100100111011111111111111111001001110111111111111111110010011101111111111111111100100111011111111111111111001001110111111111111111110010011101111111111111111100100111011111111111111111011001110111111111111111110110011101111111111111111101100111011111111111111111011001110111111111111111111011010001111111111111111110110100011001111111111111101000111010011111111111111010001110111111111111111110100111011111111111111111101001110111111111111111111011110101011111111111111110111101010111111111111111101101111111111111111111111011011111111111111111111110100111011111111111111111101001110111111111111111111010111111111111111111111110101111111111111111111111101001000111111111111111111010010001111111111111111110100111011111111111111111101001110111111111111111111010110101111111111111111110101101011111111111111111101110100011111111111111111011101000101111111111111110100111011011111111111111101001110111111111111111111010100100011111111111111110101001000111111111111111101101111111111111111111111011011111111111111111111110100111011111111111111111101001110111111111111111111011100000011111111111111110111000000111111111111111101000000001111111111111111010000000000001111111111110110000000000011111111111101100000000000111111111111010011101100001111111111110100111011111111111111111101101111111111111111111111011011111111111111111111110100111011111111111111111101001110111111111111111111011110111011111111111111110111101110111111111111111101111010101111111111111111011110101011111111111111110100111011111111111111111101001110111111111111111111011110101011111111111111110111101010111111111111111101001110111111111111111111010011101111111111111111110111101010111111111111111101111010101111111111111111010011101111111111111111110100111011111111111111111101001110111111111111111111010011101111111111111111110111101100111111111111111101111011001111111111111111010000000011111111111111110100000000000011111111111101100000000000111111111111011000000000001111111111100100111011000011111111111001001110111111111111111110011010101111111111111111100110101011001111111111111001000111011011111111111110010001110111111111111111100100111011111111111111111001001110111111111111111110010110101111111111111111100101101011111111111111111001001110111111111111111110010011101111111111111111100100000000111111111111111001000000001111111111111110011000000011111111111111100110000000111111111111111001001110111111111111111110010011101111111111111111100110111111111111111111111001101111111111111111111110010011101111111111111111100100111011111111111111111001000000001111111111111110010000000011111111111111100110000000111111111111111001100000001111111111111110010011101111111111111111100100111011111111111111111001000000001111111111111110010000000011111111111111100110000000111111111111111001100000001111111111111110010011101111111111111111100100111011111111111111111001000000001111111111111110010000000011111111111111100110000000111111111111111001100000001111111111111110010011101111111111111111100100111011111111111111111001001110111111111111111110010011101111111111111111100100111011111111111111111001001110111111111111111110010011101111111111111111100100111011111111111111111001001110111111111111111110010011101111111111111111100100111011111111111111111001001110111111111111111110011010001111111111111111100110100011101111111111111001000111010011111111111110010001110111111111111111100100111011111111111111111001001110111111111111111110011110101011111111111111100111101010111111111111111001101111111111111111111110011011111111111111111111101100111011111111111111111011001110111111111111111110110111111111111111111111101101111111111111111111111001001000111111111111111110010010001111111111111111100100111011111111111111111001001110111111111111111110010110101111111111111111100101101011111111111111111001110100011111111111111110011101000101111111111111100100111011011111111111111001001110111111111111111110010100000011111111111111100101000000111111111111111001101111111111111111111110011011111111111111111111100100111011111111111111111001001110111111111111111110011100000011111111111111100111000000111111111111111001000011111111111111111110010000111100001111111111100110001011111111111111111001100010110000111111111110010011101110111111111111100100111011111111111111111001101111111111111111111110011011111111111111111111100100111011111111111111111001001110111111111111111110011110111011111111111111100111101110111111111111111001001110111111111111111110010011101111111111111111100111101010111111111111111001111010101111111111111110010011101111111111111111100100111011111111111111111001111010101111111111111110011110101011111111111111100100111011111111111111111001001110111111111111111110011110101011111111111111100111101010111111111111111001001110111111111111111110010011101111111111111111100100111011111111111111111001001110111111111111111110010000111111111111111111100100001111111111111111111001100010111111111111111110011000101110111111111111100100111011101111111111111001001110111111111111111110110011101111111111111111101100111011111111111111111011000111011111111111111110110001110111111111111111110100111011111111111111111101001110111111111111111111010110101111111111111111110101101011111111111111111101001110111111111111111111010011101111111111111111110100001111111111111111111101000011111111111111111111011000101111111111111111110110001011101111111111111101001110111011111111111111010011101111111111111111110110111111111111111111111101101111111111111111111111010011101111111111111111110100111011111111111111111101000011111111111111111111010000111111111111111111110110001011111111111111111101100010111011111111111111010011101110111111111111110100111011111111111111111101000011111111111111111111010000111111111111111111110110001011111111111111111101100010111011111111111111010011101110111111111111110100111011111111111111111101000011111111111111111111010000111111111111111111110110001011111111111111111101100010111011111111111111010011101110111111111111110100111011111111111111111101001110111111111111111111010011101111111111111111110100111011111111111111111101001110111111111111111111010011101111111111111111110100111011111111111111111101001110111111111111111111010011101111111111111111110100111011111111111111111101001110111111111111111111010011101111111111111111110100111011111111111111111101101000111111111111111111011010001100111111111111110100011101001111111111111101000111011111111111111111010011101111111111111111110100111011111111111111111101111010101111111111111111011110101011111111111111110110111111111111111111111101101111111111111111111111010011101111111111111111110100111011111111111111111101011111111111111111111111010111111111111111111111110100100011111111111111111101001000111111111111111111010011101111111111111111110100111011111111111111111001011010111111111111111110010110101111111111111111100111010001111111111111111001110100010111111111111110010011101101111111111111100100111011111111111111111001010000001111111111111110010100000011111111111111101110111111111111111111111011101111111111111111111110110011101111111111111111101100111011111111111111111011110000001111111111111110111100000011111111111111101100001111111111111111111011000011111111111111111110011000101111111111111111100110001011101111111111111001001110111011111111111110010011101111111111111111100110111111111111111111111001101111111111111111111110010011101111111111111111100100111011111111111111111001111011101111111111111110011110111011111111111111100100111011111111111111111001001110111111111111111110011110101011111111111111100111101010111111111111111001001110111111111111111110010011101111111</data>
-          <extradata>1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111T111111111111111111111111111111111111111111111111111111111111111</extradata>
-        </log>
       </trigger>
     </signal_set>
   </instance>
-  <static_plugin_mnemonics/>
   <mnemonics/>
-  <global_info>
-    <single attribute="active instance" value="0"/>
-    <single attribute="config widget visible" value="1"/>
-    <single attribute="data log widget visible" value="1"/>
-    <single attribute="hierarchy widget visible" value="1"/>
-    <single attribute="instance widget visible" value="1"/>
-    <single attribute="jtag widget visible" value="1"/>
-    <multi attribute="column width" size="23" value="34,34,231,74,68,70,88,88,98,98,88,88,110,101,101,101,101,101,101,101,101,107,78"/>
-    <multi attribute="frame size" size="2" value="1268,957"/>
-    <multi attribute="jtag widget size" size="2" value="384,133"/>
-  </global_info>
 </session>
