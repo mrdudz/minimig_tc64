@@ -454,7 +454,7 @@ TG68KdotC_Kernel	b2v_inst6(
 	.nLDS(sdram_hostL),
 	
 	
-	.addr(addr),
+	.addr_out(addr),
 	.busstate(state),
 	.data_write(cpide_cpudatain)
 	

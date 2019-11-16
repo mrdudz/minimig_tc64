@@ -1,3 +1,6 @@
 [submodule "Minimig_Firmware"]
 	path = Minimig_Firmware
 	url = https://github.com/robinsonb5/Minimig_Firmware.git
+[submodule "TG68K.C"]
+	path = TG68K.C
+	url = https://github.com/TobiFlex/TG68K.C.git
